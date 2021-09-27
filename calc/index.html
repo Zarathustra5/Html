@@ -1,0 +1,51 @@
+<!--Сообщаем браузеру как стоит обрабатывать эту страницу-->
+<!DOCTYPE html>
+<!--Оболочка документа, указываем язык содержиого-->
+<html lang="ru">
+<!--Заголовок страницы, контейнер для других важных данных (не отображается)-->
+    <head>
+    	<!--Заголовок страницы в браузере-->
+    	<title>Калькулятор</title>
+    	<!--Кодировка страницы-->
+      <meta charset="UTF-8"> 
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+      <meta name="format-detection" content="telephone=0">
+        <link rel="stylesheet" href="source/css/style.css">
+        <link rel="shortcut icon" href="img/.png">
+    </head>
+    <!--Отображаем тело страницы-->
+    <body>
+      <div class='wrapper'>
+        <div class='container'>
+          <div class="calc">
+            <div class="calc__display">
+              <input type="text" autofocus>
+            </div>
+            <div class="calc__numbers">
+              <button>1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>4</button>
+              <button>5</button>
+              <button>6</button>
+              <button>7</button>
+              <button>8</button>
+              <button>9</button>
+              <button>0</button>
+            </div>
+            <div class="calc__operations">
+              <button>+</button>
+              <button>-</button>
+              <button>*</button>
+              <button>/</button>
+              <button>%</button>
+              <button class="calc__result">=</button>
+              <button class="calc__delete-all">C</button>
+              <button class="calc__delete-last">Del</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src='source/js/script.js'></script>
+    </body>
+</html>

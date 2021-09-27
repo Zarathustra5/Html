@@ -1,0 +1,48 @@
+@import 'nullstyle.scss';
+
+html,body{}
+
+.wrapper{
+  min-height:100%;
+  overflow:hidden;  
+}
+
+.calc{
+  border:2px solid black;
+  width:300px;
+  margin:100px auto;
+  border-radius:5px;
+  box-shadow:5px 5px 10px 5px black;
+  background: linear-gradient(to top left, aqua, red);
+  button{
+    width:54px;
+    height:40px;
+    margin:10px;
+    border-radius:5px;
+    background-color:#2F4F4F;
+    color:white;
+    &:hover{
+      background-color:#708090;
+    }
+  }
+  &__display{
+    input{
+      padding:1em;
+      border-bottom:2px solid black;
+      border-radius:5px;
+      width:100%;
+      height:100%;
+      color:#2F4F4F;
+      font-size:17px;
+    }
+  }
+  &__numbers{
+    display:flex;
+    flex-wrap:wrap;
+  }
+  &__operations{
+    border-top:2px solid black;
+    display:flex;
+    flex-wrap:wrap;
+  }
+}
