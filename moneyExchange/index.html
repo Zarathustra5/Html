@@ -1,0 +1,68 @@
+<!--Сообщаем браузеру как стоит обрабатывать эту страницу-->
+<!DOCTYPE html>
+<!--Оболочка документа, указываем язык содержиого-->
+<html lang="ru">
+<!--Заголовок страницы, контейнер для других важных данных (не отображается)-->
+    <head>
+    	<!--Заголовок страницы в браузере-->
+    	<title></title>
+    	<!--Кодировка страницы-->
+      <meta charset="UTF-8"> 
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+      <meta name="format-detection" content="telephone=0">
+        <link rel="stylesheet" href="source/css/style.css">
+        <link rel="shortcut icon" href="img/icon.png">
+    </head>
+    <!--Отображаем тело страницы-->
+    <body>
+      <div class='wrapper'>
+        <div class='container'>
+          <header class="header">
+            <div class="header__container fat-container">
+              <div class="header__logo">
+                <img src="img/logo.svg" alt="">
+              </div>
+              <menu class="header__menu">
+                <a href="">Компания</a>
+                <a href="">Блок</a>
+                <a href="">Контакты</a>
+              </menu>
+              <div class="header__account">
+                <button class="enter">Вход</button>
+                <button class="registration button">Регистрация</button>
+              </div>
+            </div>
+          </header>
+          <main class="main">
+            <div class="hello">
+              <div class="hello__bg">
+                <img src="img/bg.svg" alt="">
+              </div>
+              <div class="hello__container slim-container">
+                <h1>Мультивалютный <br> обменный сервис 24/7</h1>
+                <p class="hello__description">Быстрый обмен без скрытых комиссий</p>
+                <div class="hello__block">
+                  <div class="give">
+                    <h4>Вы отдаете</h4>
+                    <p>Сумма</p>
+                    <div class="currency">
+                      <input type="" value="1000.00">
+                      <ul class="currency__list">
+                        <li>
+                          <img src="img/sberbank.svg" alt="">
+                          <span>RUB</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <button class="button">Обменять</button>
+                </div>
+              </div>
+            </div>
+          </main>
+          <footer class="footer"></footer>
+        </div>
+      </div>
+      <script src='source/js/script.js'></script>
+    </body>
+</html>

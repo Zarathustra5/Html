@@ -1,0 +1,134 @@
+@import 'nullstyle.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+html,body{}
+
+.wrapper{
+  min-height:100%;
+  overflow:hidden;  
+  font-family: Rubik;
+  color:#4E5983;
+  font-size:14px;
+}
+
+.container{
+  max-width:1468px;
+  margin:auto;
+}
+
+.fat-container{
+  max-width:1244px;
+  margin:auto;
+}
+
+.slim-container{
+  max-width:1008px;
+  margin:auto;
+}
+
+.button{
+  width:157px;
+  height:59px;
+  border-radius:9px;
+  background-color:#A17FFF;
+  &:hover{
+    background-color:#E5E5E5;
+
+  }
+}
+
+.header{
+  margin-top:17px;
+  &__container{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+  }
+  &__logo{
+  }
+  &__menu{
+    a{
+      margin-left:49px;
+      color:#4E5983;
+    }
+
+  }
+  &__account{
+    button{
+      color:#4E5983;
+    }
+    .enter{
+      background:none;
+    }
+    .registration{
+      margin-left:37px;
+      font-weight:500;
+    }
+  }
+}
+
+.hello{
+  position:relative;
+  margin-top:20px;
+  text-align:center;
+  &__bg{
+    position:absolute;
+    z-index:-1;
+
+  }
+  &__container{
+
+  }
+  h1{
+    padding-top:135px;
+    font-weight:700;
+    color:white;
+    font-size:60px;
+  }
+  &__description{
+    padding-top:36px;
+    font-weight:700;
+    color:white;
+    font-size:19px;
+
+  }
+  &__block{
+    margin-top:55px;
+    padding:81px 81px 76px 106px;
+    background-color:white;
+    border-radius:26px;
+    max-width:1109px;
+    max-height:283px;
+    display:flex;
+    align-items:center;
+    .give{
+      text-align:left;
+    }
+    .currency{
+      display:flex;
+      opacity:0.4;
+      margin-top:22px;
+      position:relative;
+      &:after{
+        border-bottom:1px solid black;
+        width:292px;
+        position:absolute;
+        z-index:100;
+      }
+      input{
+        font-size:16px;
+      }
+    }
+    h4{
+      font-size:18px;
+      font-weight:500;
+    }
+    p{
+      margin-top:38px;
+    }
+    button{
+      margin-left:60px;
+    }
+  }
+}
