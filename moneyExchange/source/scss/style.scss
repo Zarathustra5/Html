@@ -4,45 +4,91 @@
 
 html,body{}
 
+//Обертка-------------------------------
 .wrapper{
   min-height:100%;
   overflow:hidden;  
   font-family: Rubik;
   color:#4E5983;
   font-size:14px;
-}
-
-.container{
   max-width:1468px;
   margin:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 }
 
+//Максимальные контейнеры-------------------------------
 .fat-container{
   max-width:1244px;
   margin:auto;
 }
 
+//Минимальные контейнеры------------------------------
 .slim-container{
   max-width:1008px;
   margin:auto;
 }
 
+//Кнопки-------------------------------
 .button{
   width:157px;
   height:59px;
   border-radius:9px;
-  background-color:#A17FFF;
+  background:#A17FFF;
   &:hover{
-    background-color:#E5E5E5;
-
+    background:#E5E5E5;
+    color:#160647;
   }
 }
 
+//Подзаголовки и параграфы-------------------------------
+h2{
+  font-size:35px;
+  font-weight:500;
+  color:#160647;
+  line-height:50px;
+}
+p{
+  line-height:30px;
+
+}
+
+//Стрелочки-------------------------------
+.pointer{
+  width:36px;
+  height:3px;
+  background-color:#C4C4C4;
+  position:relative;
+  cursor:pointer;
+  &:before{
+    content:"";
+    width:17px;
+    height:3px;
+    background-color:#C4C4C4;
+    position:absolute;
+    top:-5px;
+    border-radius:10px;
+    transform:rotate(-45deg);
+  }
+  &:after{
+    content:"";
+    width:17px;
+    height:3px;
+    background-color:#C4C4C4;
+    position:absolute;
+    bottom:-5px;
+    border-radius:10px;
+    transform:rotate(45deg);
+  }
+}
+
+//Шапка страницы-----------------------------------------------------
 .header{
   margin-top:17px;
   &__container{
     display:flex;
-    justify-content:space-around;
+    justify-content:space-between;
     align-items:center;
   }
   &__logo{
@@ -51,6 +97,10 @@ html,body{}
     a{
       margin-left:49px;
       color:#4E5983;
+      &:hover{
+        text-decoration:underline;
+        color:#160647;
+      }
     }
 
   }
@@ -60,6 +110,10 @@ html,body{}
     }
     .enter{
       background:none;
+      &:hover{
+        text-decoration:underline;
+        color:#160647;
+      }
     }
     .registration{
       margin-left:37px;
@@ -68,67 +122,364 @@ html,body{}
   }
 }
 
+//Основной контент страницы--------------------------------------------
+.main{
+  flex:1 1 auto;
+}
+
+//Мультивалютный обменный сервис--------------------------------------------
 .hello{
+  //Все, что находится вне центрального блока
+  background: linear-gradient(to top left, #A07EFE, #562EC2);
   position:relative;
   margin-top:20px;
   text-align:center;
+  padding:124px 0;
+  overflow:hidden;
   &__bg{
     position:absolute;
-    z-index:-1;
-
-  }
-  &__container{
-
+    &_left{
+      left:0;
+    }
+    &_right{
+      right:0;
+    }
   }
   h1{
-    padding-top:135px;
     font-weight:700;
     color:white;
     font-size:60px;
+    position:relative;
+    z-index:300;
   }
   &__description{
     padding-top:36px;
     font-weight:700;
     color:white;
     font-size:19px;
+    position:relative;
+    z-index:300;
 
   }
+  //Все, что находится внутри центрального блока
   &__block{
     margin-top:55px;
     padding:81px 81px 76px 106px;
     background-color:white;
-    border-radius:26px;
     max-width:1109px;
     max-height:283px;
+    position:relative;
+    z-index:300;
+    border-radius:26px;
+    text-align:left;
     display:flex;
-    align-items:center;
-    .give{
-      text-align:left;
-    }
-    .currency{
-      display:flex;
-      opacity:0.4;
-      margin-top:22px;
-      position:relative;
-      &:after{
-        border-bottom:1px solid black;
-        width:292px;
-        position:absolute;
-        z-index:100;
-      }
-      input{
-        font-size:16px;
-      }
-    }
+    align-items:flex-end;
+    justify-content:space-between;
     h4{
       font-size:18px;
       font-weight:500;
+      display:inline-block;
+      padding-right:10px;
     }
-    p{
-      margin-top:38px;
+    .transport{
+      cursor:pointer;
     }
     button{
-      margin-left:60px;
+      color:white;
+      background: linear-gradient(to top left, #A07EFE, #562EC2);
+    }
+    .exchange{
+      position:relative;
+      p{
+        margin-top:38px;
+      }
+    }
+    .currency{
+      display:inline-flex;
+      align-items:center;
+      margin-top:22px;
+      position:relative;
+      &:after{
+        content:'';
+        position:absolute;
+        bottom:-10px;
+        left:0;
+        border-bottom:2px solid black;
+        width:100%;
+        opacity:0.3;
+      }
+      &__input{
+        position:relative;
+        &:before{
+          content:'';
+          position:absolute;
+          bottom:0;
+          right:0;
+          border-right:1px solid black;
+          height:100%;
+          opacity:0.5;
+        }
+        input{
+          font-size:18px;
+          width:175px;
+        }
+      }
+      &__choose{
+        display:flex;
+        align-items:center;
+        cursor:pointer;
+        img{
+          padding:0 7px;
+          max-height:24px;
+          max-width:44px;
+        }
+        &:after{
+          content:'';
+          border-right:7px solid transparent;
+          border-left:7px solid transparent;
+          border-top:10px solid #4E5983;
+          margin-left:5px;
+          transform:rotate(180deg);
+        }
+        &:hover{
+          opacity:0.7;
+        }
+      }
+      &__list{
+        list-style:none;
+        position:absolute;
+        z-index:1000;
+        bottom:-160px;
+        right:0;
+        cursor:pointer;
+        display:none;
+        max-height:150px;
+        overflow:auto;
+        img{
+          padding:0 7px;
+          max-height:24px;
+          max-width:44px;
+        }
+        li{
+          border:1px solid black;
+        background:white;
+        opacity:0.7;
+          padding:5px 17px 5px 0px;
+          display:flex;
+          align-items:center;
+        }
+      }
+    }
+  }
+}
+
+//Преимущества компании-----------------------------------------------------
+.benefits{
+  margin-top:137px;
+  &__container{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+  }
+  .benefit{
+    margin-right:146px;
+    &:last-child{
+      margin-bottom:0;
+      margin-right:0;
+    }
+  }
+  img{
+    width:179px;
+    height:161px;
+  }
+  h4{
+    font-size:22px;
+    font-weight:500;
+
+  }
+  p{
+    padding-top:20px;
+    font-size:18px;
+  }
+}
+
+//История компании-----------------------------------------------------
+.history{
+  margin-top:85px;
+  &__container{
+
+  }
+  &__block{
+    border-radius:26px;
+    display:flex;
+    border:3px solid #E5E5E5;
+    padding:108px 14px 82px 157px;
+  }
+  &__text{
+    p{
+      font-size:18px;
+      margin-top:44px;
+    }
+
+  }
+  img{
+    margin-left:33px;
+
+  }
+}
+
+//Резерв валюты-----------------------------------------------------
+.reserve{
+  margin-top:142px;
+  &__container{
+
+  }
+  h2{
+    text-align:center;
+  }
+  &__wallets{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    margin-top:8px;
+    .wallet{
+      display:flex;
+      align-items:center;
+      margin-top:83px;
+      &__text{
+        padding-left:33px;
+        p{
+          padding-top:12px;
+          font-size:20px;
+          color:#160647;
+        }
+      }
+    }
+  }
+}
+
+//Что клиенты говорят о нас-------------------------------------------------
+.about-us{
+  margin-top:167px;
+  position:relative;
+  z-index:300;
+  &__reviews{
+    font-size:18px;
+    display:flex;
+    overflow:hidden;
+    .review{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      flex:0 0 470px;
+      margin-right:68px;
+      p{
+        padding:139px 0 63px 0;
+      }
+      div{
+        .name{
+          color:#160647;
+          font-size:20px;
+          font-weight:500;
+          padding-right:41px;
+        }
+      }
+    }
+  } 
+  &__switch{
+    margin-top:53px;
+    text-align:right;
+
+  }
+  &__back{
+    display:inline-block;
+    margin-right:22px;
+    &:before{
+      left:-5px;
+    }
+    &:after{
+      left:-5px;
+    }
+
+  }
+  &__next{
+    background-color:#A17FFF;
+    width:71px;
+    display:inline-block;
+    &:before{
+      background-color:#A17FFF;
+      transform:rotate(45deg);
+      right:-5px;
+    }
+    &:after{
+      background-color:#A17FFF;
+      transform:rotate(-45deg);
+      right:-5px;
+    }
+
+  }
+}
+
+//Будем рады предоставить Вам качественный обмен-------------------------
+.start{
+  margin-top:50px;
+  &__container{
+  }
+  &__block{
+    display:block;
+    background: linear-gradient(to top left, #A07EFE, #562EC2);
+    color:white;
+    padding:89px 137px 65px 639px;
+    position:relative;
+    box-shadow:10px 10px 20px 20px #A07EFE;
+    img{
+      position:absolute;
+      left:-110px;
+      bottom:-190px;
+      z-index:1;
+    }
+    div{
+      position:relative;
+      z-index:100;
+      h2{
+        color:white;
+
+      }
+      p{
+        margin-top:17px;
+      }
+      button{
+        margin-top:57px;
+        background-color:white;
+        color:#9F7DFD;
+        box-shadow:0px 5px 10px 0px white;
+      }
+    }
+  }
+}
+
+//Подвал страницы-----------------------------------------------------
+.footer{
+  margin:137px 0 84px 0;
+  position:relative;
+  z-index:300;
+  &__container{
+    display:flex;
+    justify-content:space-between;
+  }
+  &__logo{
+    p{
+      padding:26px 0 0 26px;
+    }
+  }
+  &__menu{
+    a{
+      margin-left:49px;
+      color:#4E5983;
+      &:hover{
+        text-decoration:underline;
+        color:#160647;
+      }
     }
   }
 }

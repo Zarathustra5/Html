@@ -1,10 +1,10 @@
-<svg width="53" height="54" viewBox="0 0 53 54" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<circle opacity="0.1" cx="26.5006" cy="27.0748" r="26.2857" fill="#2B9E2F"/>
-<mask id="mask0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="12" width="53" height="28">
-<rect x="0.214844" y="12.2168" width="52.5714" height="27.4286" fill="url(#pattern0)"/>
+<svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<ellipse cx="18.3449" cy="15.0892" rx="14.6183" ry="14.5892" fill="#27AE60"/>
+<mask id="mask0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="3" width="38" height="21">
+<rect x="0.480469" y="3.74097" width="37.3579" height="19.4523" fill="url(#pattern0)"/>
 </mask>
 <g mask="url(#mask0)">
-<rect x="11.6445" y="15.3203" width="25.4694" height="28.6531" fill="#2B9E2F"/>
+<rect x="8.60156" y="5.94214" width="18.0989" height="20.3207" fill="white"/>
 </g>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
