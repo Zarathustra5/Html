@@ -162,7 +162,7 @@ p{
 
   }
   //Все, что находится внутри центрального блока
-  &__block{
+  &__form{
     margin-top:55px;
     padding:81px 81px 76px 106px;
     background-color:white;
@@ -230,20 +230,26 @@ p{
         cursor:pointer;
         img{
           padding:0 7px;
-          max-height:24px;
-          max-width:44px;
+          height:24px;
+          width:44px;
         }
         &:after{
           content:'';
-          border-right:7px solid transparent;
-          border-left:7px solid transparent;
-          border-top:10px solid #4E5983;
-          margin-left:5px;
-          transform:rotate(180deg);
         }
         &:hover{
           opacity:0.7;
         }
+      }
+      &__value{
+        display:flex;
+        align-items:center;
+      }
+      &__animation{
+        border-right:7px solid transparent;
+        border-left:7px solid transparent;
+        border-top:10px solid #4E5983;
+        margin-left:5px;
+        display:inline-block;
       }
       &__list{
         list-style:none;
@@ -257,8 +263,8 @@ p{
         overflow:auto;
         img{
           padding:0 7px;
-          max-height:24px;
-          max-width:44px;
+          height:24px;
+          width:44px;
         }
         li{
           border:1px solid black;

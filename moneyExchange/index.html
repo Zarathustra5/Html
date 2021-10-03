@@ -42,7 +42,8 @@
               <img class="hello__bg hello__bg_right" src="img/hello-bg_el2.svg" alt="">
               <h1>Мультивалютный <br> обменный сервис 24/7</h1>
               <p class="hello__description">Быстрый обмен без скрытых комиссий</p>
-              <div class="hello__block block">
+              <form class="hello__form" action="#">
+                <!--Вы отдаете-->
                 <div class="give exchange">
                   <div class="give__title">
                     <h4>Вы отдаете</h4>
@@ -50,12 +51,16 @@
                   <p>Сумма</p>
                   <div class="give__currency currency">
                     <div class="currency__input">
-                      <input type="" value="1000.00">
+                      <input name="give" type="text" value="1000.00">
                     </div>
                     <div class="currency__choose give__choose">
-                      <img src="img/sberbank2.svg" alt="">
-                      <span>RUB</span>
+                      <div class="give__value currency__value">
+                        <img src="img/sberbank2.svg" alt="">
+                        <span>RUB</span>
+                      </div>
+                      <div class="give__animation currency__animation"></div>
                     </div>
+                    <!--Выпадающий список-->
                     <ul class="currency__list give__list">
                       <li>
                         <img src="img/sberbank2.svg" alt="">
@@ -63,11 +68,11 @@
                       </li>
                       <li>
                         <img src="img/pm2.svg" alt="">
-                        <span>RUB</span>
+                        <span>USD</span>
                       </li>
                       <li>
                         <img src="img/paypal2.svg" alt="">
-                        <span>RUB</span>
+                        <span>USD</span>
                       </li>
                       <li>
                         <img src="img/qiwi2.svg" alt="">
@@ -75,11 +80,11 @@
                       </li>
                       <li>
                         <img src="img/etherium2.svg" alt="">
-                        <span>RUB</span>
+                        <span>ETH</span>
                       </li>
                       <li>
                         <img src="img/privat2.svg" alt="">
-                        <span>RUB</span>
+                        <span>UAH</span>
                       </li>
                       <li>
                         <img src="img/yandex2.svg" alt="">
@@ -87,14 +92,16 @@
                       </li>
                       <li>
                         <img src="img/bitcoin2.svg" alt="">
-                        <span>RUB</span>
+                        <span>BTC</span>
                       </li>
                     </ul>
                   </div>
                 </div>
+                <!--Кнопка смены местами-->
                 <div class="transport">
                   <img src="img/exchange.svg" alt="">
                 </div>
+                <!--Вы получаете-->
                 <div class="get exchange">
                   <div class="get__title">
                     <h4>Вы получаете</h4>
@@ -103,12 +110,16 @@
                   <p>Сумма</p>
                   <div class="get__currency currency">
                     <div class="currency__input">
-                      <input type="" value="1000.00">
+                      <input name="get" type="text" value="1000.00">
                     </div>
                     <div class="currency__choose get__choose">
-                      <img src="img/sberbank2.svg" alt="">
-                      <span>RUB</span>
+                      <div class="get__value currency__value">
+                        <img src="img/sberbank2.svg" alt="">
+                        <span>RUB</span>
+                      </div>
+                      <div class="get__animation currency__animation"></div>
                     </div>
+                    <!--Выпадающий список-->
                     <ul class="currency__list get__list">
                       <li>
                         <img src="img/sberbank2.svg" alt="">
@@ -116,11 +127,11 @@
                       </li>
                       <li>
                         <img src="img/pm2.svg" alt="">
-                        <span>RUB</span>
+                        <span>USD</span>
                       </li>
                       <li>
                         <img src="img/paypal2.svg" alt="">
-                        <span>RUB</span>
+                        <span>USD</span>
                       </li>
                       <li>
                         <img src="img/qiwi2.svg" alt="">
@@ -128,11 +139,11 @@
                       </li>
                       <li>
                         <img src="img/etherium2.svg" alt="">
-                        <span>RUB</span>
+                        <span>ETH</span>
                       </li>
                       <li>
                         <img src="img/privat2.svg" alt="">
-                        <span>RUB</span>
+                        <span>UAH</span>
                       </li>
                       <li>
                         <img src="img/yandex2.svg" alt="">
@@ -140,13 +151,14 @@
                       </li>
                       <li>
                         <img src="img/bitcoin2.svg" alt="">
-                        <span>RUB</span>
+                        <span>BTC</span>
                       </li>
                     </ul>
                   </div>
                 </div>
-                <button class="button">Обменять</button>
-              </div>
+                <!--Кнопка отправки формы-->
+                <button type="submit" class="button">Обменять</button>
+              </form>
             </div>
           </div>
           <!--Преимущества компании-->

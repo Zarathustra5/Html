@@ -232,7 +232,7 @@ p {
   position: relative;
   z-index: 300;
 }
-.hello__block {
+.hello__form {
   margin-top: 55px;
   padding: 81px 81px 76px 106px;
   background-color: white;
@@ -252,27 +252,27 @@ p {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.hello__block h4 {
+.hello__form h4 {
   font-size: 18px;
   font-weight: 500;
   display: inline-block;
   padding-right: 10px;
 }
-.hello__block .transport {
+.hello__form .transport {
   cursor: pointer;
 }
-.hello__block button {
+.hello__form button {
   color: white;
   background: -webkit-gradient(linear, right bottom, left top, from(#A07EFE), to(#562EC2));
   background: linear-gradient(to top left, #A07EFE, #562EC2);
 }
-.hello__block .exchange {
+.hello__form .exchange {
   position: relative;
 }
-.hello__block .exchange p {
+.hello__form .exchange p {
   margin-top: 38px;
 }
-.hello__block .currency {
+.hello__form .currency {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -282,7 +282,7 @@ p {
   margin-top: 22px;
   position: relative;
 }
-.hello__block .currency:after {
+.hello__form .currency:after {
   content: "";
   position: absolute;
   bottom: -10px;
@@ -291,10 +291,10 @@ p {
   width: 100%;
   opacity: 0.3;
 }
-.hello__block .currency__input {
+.hello__form .currency__input {
   position: relative;
 }
-.hello__block .currency__input:before {
+.hello__form .currency__input:before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -303,11 +303,11 @@ p {
   height: 100%;
   opacity: 0.5;
 }
-.hello__block .currency__input input {
+.hello__form .currency__input input {
   font-size: 18px;
   width: 175px;
 }
-.hello__block .currency__choose {
+.hello__form .currency__choose {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -316,24 +316,33 @@ p {
           align-items: center;
   cursor: pointer;
 }
-.hello__block .currency__choose img {
+.hello__form .currency__choose img {
   padding: 0 7px;
-  max-height: 24px;
-  max-width: 44px;
+  height: 24px;
+  width: 44px;
 }
-.hello__block .currency__choose:after {
+.hello__form .currency__choose:after {
   content: "";
+}
+.hello__form .currency__choose:hover {
+  opacity: 0.7;
+}
+.hello__form .currency__value {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.hello__form .currency__animation {
   border-right: 7px solid transparent;
   border-left: 7px solid transparent;
   border-top: 10px solid #4E5983;
   margin-left: 5px;
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  display: inline-block;
 }
-.hello__block .currency__choose:hover {
-  opacity: 0.7;
-}
-.hello__block .currency__list {
+.hello__form .currency__list {
   list-style: none;
   position: absolute;
   z-index: 1000;
@@ -344,12 +353,12 @@ p {
   max-height: 150px;
   overflow: auto;
 }
-.hello__block .currency__list img {
+.hello__form .currency__list img {
   padding: 0 7px;
-  max-height: 24px;
-  max-width: 44px;
+  height: 24px;
+  width: 44px;
 }
-.hello__block .currency__list li {
+.hello__form .currency__list li {
   border: 1px solid black;
   background: white;
   opacity: 0.7;
