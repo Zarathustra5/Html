@@ -1,0 +1,245 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face { 
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+@import "fonts.scss";
+@import "nullstyle.scss";
+
+html, body{
+}
+
+.input{
+  input{
+    width: 370px;
+    height: 70px;
+    padding:2em;
+  }
+  img{
+    position:absolute;
+    top:2em;
+    right:2em;
+  }
+}
+
+.ibg{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width:100%;
+  height:100%;
+  z-index:-100;
+}
+
+.ibg img{
+  display:none;
+}
+
+//Обертка-------------------------------
+.wrapper{
+  font-family:Inter;
+  min-height:100%;
+  overflow:hidden;  
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  max-width:1920px;
+  position:relative;
+  line-height: 1.2;
+}
+
+//Контейнер-----------------------------------
+.container{
+  max-width:1170px;
+  margin:auto;
+}
+
+.bg{
+  position:absolute;
+  width:100%;
+  height:100%;
+  z-index:-100;
+  &_black{
+    background-color:#191919;
+  }
+  &_light-blue{
+    background-color:black;
+  }
+  &_dark-blue{
+    background-color:#08243e;
+  }
+}
+
+/*Шапка страницы-----------------------------------------*/
+@import "header.scss";
+
+/*Главный контент страницы-----------------------------------------*/
+.page{
+  flex:1 1 auto;
+}
+
+/*Оригинальные запчасти для белаз-----------------------------------------*/
+.main-screen{
+  position:relative;
+  .container{
+    padding:0 10px;
+  }
+  .original-parts{
+    background-color:#f7b516;
+    display:inline-block;
+    padding:100px;
+    &__title{
+      font-size: 40px;
+      line-height: 55px;
+      font-weight: 900;
+    }
+    &__subtitle{
+      margin-top:49px;
+      font-size: 20px;
+      font-weight:900;
+    }
+    &__list{
+      margin-top:52px;
+      li{
+        display:flex;
+        align-items:center;
+        margin-top:48px;
+        font-size: 18px;
+        .text{
+          padding-left:26px;
+        }
+      }
+    }
+  }
+}
+
+/*Получите прайс прямо сейчас на электронную почту!-----------------------*/
+.get-price{
+  position:relative;
+  text-align:right;
+  .container{
+    padding:100px 10px;
+  }
+  &__title{
+    font-size: 30px;
+    font-weight: 900;
+  }
+  &__form{
+    margin-top:60px;
+    .inputs{
+      display:flex;
+      justify-content:flex-end;
+      .input{
+        input{
+          background-color: #f2f2f2;
+        }
+        &__email{
+          position:relative;
+        }
+        &__number{
+          position:relative;
+          margin-left:30px;
+        }
+      }
+    }
+    .send{
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      margin-top:30px;
+      &__text{
+        font-weight:700;
+      }
+      &__clock{
+        margin-left:30px;
+      }
+      &__button{
+        width: 370px;
+        height: 80px;
+        background-color: #1866af;
+        color:white;
+        font-size: 17px;
+        font-weight: 700;
+        margin-left:30px;
+      }  
+    }
+  }
+}
+
+/*Вам не придется ждать!-----------------------------------------*/
+.dont-wait{
+  position:relative;
+  text-align:center;
+  color:white;
+  .container{
+    padding:100px 10px;
+  }
+  &__title{
+    font-size: 36px;
+    font-weight: 900;
+  }
+  &__subtitle{
+    font-size: 20px;
+    padding-top:30px;
+  }
+  &__benefits{
+    display:flex;
+    padding-top:102px;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    .benefit{
+      width:232px;
+      &__image{
+        height:100px;
+        display:flex;
+        justify-content:center;
+        align-items:flex-end;
+      }
+      &__text{
+        padding-top:54px;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+/*Ищете конкретную деталь?-----------------------------------------*/
+.specific-detail{
+  color:white;
+  text-align:center;
+  .container{
+    padding:100px 10px;
+  }
+  &__title{
+    font-size: 30px;
+    font-weight: 900;
+  }
+  &__subtitle{
+    font-size: 20px;
+    margin-top:30px;
+  }
+  &__form{
+    display:flex;
+    justify-content:center;
+    margin-top:60px;
+    .button{
+      width: 370px;
+      height: 70px;
+      background-color: #f7b516;
+      margin-left:30px;
+      font-size: 17px;
+      font-weight: 700;
+      color:white;
+    }
+  }
+}
+
+/*Подвал страницы-----------------------------------------*/
+@import "footer.scss";

@@ -1,0 +1,160 @@
+<!--Сообщаем браузеру как стоит обрабатывать эту страницу-->
+<!DOCTYPE html>
+<!--Оболочка документа, указываем язык содержиого-->
+<html lang="ru">
+<!--Заголовок страницы, контейнер для других важных данных (не отображается)-->
+    <head>
+    	<!--Заголовок страницы в браузере-->
+    	<title></title>
+    	<!--Кодировка страницы-->
+      <meta charset="UTF-8"> 
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+      <meta name="format-detection" content="telephone=0">
+        <link rel="stylesheet" href="css/style.min.css">
+        <link rel="shortcut icon" href="img/icon.png">
+    </head>
+    <!--Отображаем тело страницы-->
+    <body>
+      <div class='wrapper'>
+        <!--Шапка страницы-->
+        @@include('_header.html')
+        <!--Главный контент страницы-->
+        <main class="page">
+          <!--Оригинальные запчасти для белаз-->
+          <div class="main-screen">
+            <div class="ibg">
+              <img src="img/main-screen/bg.png" alt="">
+            </div>
+            <div class="container">
+              <div class="original-parts">
+                <h1 class="original-parts__title">ОРИГИНАЛЬНЫЕ <br> ЗАПЧАСТИ<br> ДЛЯ БЕЛАЗ</h1>
+                <p class="original-parts__subtitle">с бесплатной доставкой <br> в Ваш город!</p>
+                <ul class="original-parts__list">
+                  <li>
+                    <div class="image">
+                      <img src="img/main-screen/piggy-bank.png" alt="">
+                    </div>
+                    <p class="text">Дилерские цены - ниже на 20%, <br> работаем без посредников!</p>
+                  </li>
+                  <li>
+                    <div class="image">
+                      <img src="img/main-screen/delivery-track.png" alt="">
+                    </div>
+                    <p class="text">Срочная бесплатная доставка <br> за 7 дней</p>
+                  </li>
+                  <li>
+                    <div class="image">
+                      <img src="img/main-screen/calendar.png" alt="">
+                    </div>
+                    <p class="text">Даем рассрочку <br> 6 месяцев</p>
+                  </li>
+                  <li>
+                    <div class="image">
+                      <img src="img/main-screen/medal.png" alt="">
+                    </div>
+                    <p class="text">Даем гарантию <br> от 12 месяцев</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--Получите прайс прямо сейчас на электронную почту!-->
+          <div class="get-price">
+            <div class="ibg">
+              <img src="img/get-price/bg.png" alt="">
+            </div>
+            <div class="container">
+              <h2 class="get-price__title">Получите прайс прямо сейчас <br> на электронную почту!</h2>
+              <form class="get-price__form" action="#">
+                <div class="inputs">
+                  <div class="input">
+                    <div class="input__email">
+                      <input type="email" name="email" placeholder="ВВЕДИТЕ ВАШ E-MAIL">
+                      <img src="img/get-price/email.png" alt="">
+                    </div>
+                  </div>
+                  <div class="input">
+                    <div class="input__number">
+                      <input type="tel" name="number" placeholder="ВВЕДИТЕ ВАШ ТЕЛЕФОН">
+                      <img src="img/get-price/call.png" alt="">
+                    </div>
+                  </div>
+                </div>
+                <div class="send">
+                  <p class="send__text">Прайс придет к Вам на почту <br> в течение 5 минут!</p>
+                  <div class="send__clock">
+                    <img src="img/get-price/clock.png" alt="">
+                  </div>
+                  <button class="send__button" type="submit">Получить прайс</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--Вам не придется ждать!-->
+          <div class="dont-wait">
+            <div class="bg_dark-blue bg"></div>
+            <div class="container">
+              <h2 class="dont-wait__title">Вам не придется ждать!</h2>
+              <h3 class="dont-wait__subtitle">Любые запчасти для всех моделей Белаз <br> всегда в наличии!</h3>
+              <div class="dont-wait__benefits">
+                <div class="benefit">
+                  <div class="benefit__image">
+                    <img src="img/dont-wait/engine.png" alt="">
+                  </div>
+                  <p class="benefit__text">Любые типы деталей от шайбы до двигателя!</p>
+                </div>
+                <div class="benefit">
+                  <div class="benefit__image">
+                    <img src="img/dont-wait/dump_truck.png" alt="">
+                  </div>
+                  <p class="benefit__text">Все модификации Белаз от 45т до 450т</p>
+                </div>
+                <div class="benefit">
+                  <div class="benefit__image">
+                    <img src="img/dont-wait/calendar.png" alt="">
+                  </div>
+                  <p class="benefit__text">Отгружаем в день заказа!</p>
+                </div>
+                <div class="benefit">
+                  <div class="benefit__image">
+                    <img src="img/dont-wait/location.png" alt="">
+                  </div>
+                  <p class="benefit__text">Доставим в любое место!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Ищете конкретную деталь?-->
+          <div class="specific-detail">
+            <div class="ibg">
+              <img src="img/specific-detail/bg.png" alt="">
+            </div>
+            <div class="container">
+              <h2 class="specific-detail__title">Ищете конкретную деталь?</h2>
+              <h3 class="specific-detail__subtitle">Если у Вас есть артикул - введите его в поле ниже и получите цену <br> ПРЯМО СЕЙЧАС!</h3>
+              <form class="specific-detail__form" action="#">
+                <div class="input">
+                  <div class="input__article">
+                    <input type="text" placeholder="ВВЕДИТЕ АРТИКУЛ ДЕТАЛИ">
+                  </div>
+                </div>
+                <div class="input">
+                  <div class="input__number">
+                    <input type="tel" placeholder="ВВЕДИТЕ ВАШ ТЕЛЕФОН">
+                    <img src="img/get-price/call.png" alt="">
+                  </div>
+                </div>
+                <button class="button">УЗНАТЬ ЦЕНУ</button>
+              </form>
+              <p class="specific-detail__text">Мы перезвоним вам в течение 3 минут и назовем цену детали!</p>
+              <p class="specific-detail__text">Или Вы можете перезвонить нам сами:</p>
+              <p class="specific-detail__number">+7 (818) 247-47-25</p>
+            </div>
+          </div>
+        </main>
+        <!--Подвал страницы-->
+        @@include('_footer.html')
+      </div>
+      <script src='js/script.min.js'></script>
+    </body>
+</html>
