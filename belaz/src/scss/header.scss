@@ -1,0 +1,148 @@
+.header{
+  background-color:#191919;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:3;
+  color:#ffffff;
+  .container{
+    height: 100px;
+    display:flex;
+    align-items:center;
+    padding:0 30px;
+    justify-content:space-between;
+    p{
+      margin-bottom:14px;
+      &:last-child{
+        margin-bottom:0;
+      }
+    }
+  }
+  &__logo{
+    z-index:4;
+  }
+  &__burger{
+    position:relative;
+    width:30px;
+    height:18px;
+    cursor:pointer;
+    z-index:5;
+    &:before,
+    &:after,
+    span{
+      content:"";
+      width:100%;
+      height:10%;
+      background-color:white;
+      position:absolute;
+      left:0;
+    }
+    &:before{
+      top:0;
+    }
+    &:after{
+      bottom:0;
+    }
+    span{
+      top:50%;
+    }
+    @media(min-width:767px){
+      display:none;
+    }
+  }
+  .menu{
+    text-align:center;
+    &__timetable{
+      font-weight:700;
+      margin:0 auto;
+    }
+    &__call{
+      .numbers{
+        font-weight:900;
+      }
+      .scroll{
+        font-weight:900;
+        background-color: #1669b3;
+        display:inline-flex;
+        justify-content:center;
+        align-items:center;
+      }
+    }
+    p{
+      &:hover{
+        text-decoration:underline;
+      }
+    }
+
+  }
+  @media(min-width:767px){
+    .menu{
+      display:flex;
+      flex:1 1 100%;
+      &__call{
+        display:flex;
+        align-items:center;
+        .scroll{
+          font-size:12px;
+          margin-left:28px;
+          width: 170px;
+          height: 50px;
+        }
+      }
+    }
+  }
+  @media(max-width:767px){
+    .menu{
+      padding:130px 30px 30px 30px;
+      position:fixed;
+      top:-1000px;
+      left:0;
+      width:100%;
+      height:100%;
+      background-color:rgb(0,0,0,0.9);
+      z-index:3;
+      transition:top 0.7s ease 0s;
+      font-size:18px;
+      overflow:auto;
+      &__call{
+        margin-top:50px;
+        .scroll{
+          margin-top:50px;
+          width: 230px;
+          height: 70px;
+        }
+      }
+      &:before{
+        content:"";
+        width:100%;
+        height:100px;
+        position:fixed;
+        top:0;
+        left:0;
+        z-index:4;
+        background-color:#191919;
+      }
+    }
+  }
+  .header__burger._active{
+    span{
+      display:none;
+    }
+    &:before{
+      transform:rotate(45deg);
+      top:50%;
+    }
+    &:after{
+      transform:rotate(-45deg);
+      top:50%;
+    }
+  }
+  .header__menu._active{
+    top:0;
+  }
+}
+
+body._locked{
+  overflow:hidden;
+}

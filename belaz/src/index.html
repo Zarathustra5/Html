@@ -1,0 +1,409 @@
+<!--Сообщаем браузеру как стоит обрабатывать эту страницу-->
+<!DOCTYPE html>
+<!--Оболочка документа, указываем язык содержиого-->
+<html lang="ru">
+<!--Заголовок страницы, контейнер для других важных данных (не отображается)-->
+    <head>
+    	<!--Заголовок страницы в браузере-->
+    	<title></title>
+    	<!--Кодировка страницы-->
+      <meta charset="UTF-8"> 
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+      <meta name="format-detection" content="telephone=0">
+        <link rel="stylesheet" href="css/style.min.css">
+        <link rel="shortcut icon" href="img/icon.png">
+    </head>
+    <!--Отображаем тело страницы-->
+    <body>
+      <div class='wrapper'>
+        <!--Шапка страницы-->
+        @@include('_header.html')
+        <!--Главный контент страницы-->
+        <main class="page">
+          <!--Оригинальные запчасти для белаз-->
+          <section class="main-screen">
+            <div class="ibg">
+              <img src="img/main-screen/bg.png" alt="">
+            </div>
+            <div class="container">
+              <div class="original-parts">
+                <h1 class="original-parts__title">ОРИГИНАЛЬНЫЕ <br> ЗАПЧАСТИ<br> ДЛЯ БЕЛАЗ</h1>
+                <p class="original-parts__subtitle">с бесплатной доставкой <br> в Ваш город!</p>
+                <ul class="original-parts__list">
+                  <li>
+                    <div class="image">
+                      <img src="img/main-screen/piggy-bank.png" alt="">
+                    </div>
+                    <p class="text">Дилерские цены - ниже на 20%, <br> работаем без посредников!</p>
+                  </li>
+                  <li>
+                    <div class="image">
+                      <img src="img/main-screen/delivery-track.png" alt="">
+                    </div>
+                    <p class="text">Срочная бесплатная доставка <br> за 7 дней</p>
+                  </li>
+                  <li>
+                    <div class="image">
+                      <img src="img/main-screen/calendar.png" alt="">
+                    </div>
+                    <p class="text">Даем рассрочку <br> 6 месяцев</p>
+                  </li>
+                  <li>
+                    <div class="image">
+                      <img src="img/main-screen/medal.png" alt="">
+                    </div>
+                    <p class="text">Даем гарантию <br> от 12 месяцев</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <!--Получите прайс прямо сейчас на электронную почту!-->
+          <section class="get-price">
+            <div class="ibg">
+              <img src="img/get-price/bg.png" alt="">
+            </div>
+            <div class="container">
+              <h2 class="get-price__title">Получите прайс прямо сейчас <br> на электронную почту!</h2>
+              <form class="get-price__form" action="#">
+                <div class="inputs">
+                  <div class="input">
+                    <div class="input__email">
+                      <input type="email" name="email" placeholder="ВВЕДИТЕ ВАШ E-MAIL">
+                      <img src="img/get-price/email.png" alt="">
+                    </div>
+                  </div>
+                  <div class="input">
+                    <div class="input__number">
+                      <input type="tel" name="number" placeholder="ВВЕДИТЕ ВАШ ТЕЛЕФОН">
+                      <img src="img/get-price/call.png" alt="">
+                    </div>
+                  </div>
+                </div>
+                <div class="send">
+                  <p class="send__text">Прайс придет к Вам на почту <br> в течение 5 минут!</p>
+                  <div class="send__clock">
+                    <img src="img/get-price/clock.png" alt="">
+                  </div>
+                  <button class="send__button button" type="submit">Получить прайс</button>
+                </div>
+              </form>
+            </div>
+          </section>
+          <!--Вам не придется ждать!-->
+          <section class="dont-wait template">
+            <div class="container">
+              <h2 class="title">Вам не придется ждать!</h2>
+              <h3 class="subtitle">Любые запчасти для всех моделей Белаз <br> всегда в наличии!</h3>
+              <div class="row">
+                <div class="element">
+                  <div class="element__image">
+                    <img src="img/dont-wait/engine.png" alt="">
+                  </div>
+                  <p class="element__text">Любые типы деталей от шайбы до двигателя!</p>
+                </div>
+                <div class="element">
+                  <div class="element__image">
+                    <img src="img/dont-wait/dump_truck.png" alt="">
+                  </div>
+                  <p class="element__text">Все модификации Белаз от 45т до 450т</p>
+                </div>
+                <div class="element">
+                  <div class="element__image">
+                    <img src="img/dont-wait/calendar.png" alt="">
+                  </div>
+                  <p class="element__text">Отгружаем в день заказа!</p>
+                </div>
+                <div class="element">
+                  <div class="element__image">
+                    <img src="img/dont-wait/location.png" alt="">
+                  </div>
+                  <p class="element__text">Доставим в любое место!</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--Ищете конкретную деталь?-->
+          <section class="specific-detail">
+            <div class="ibg">
+              <img src="img/specific-detail/bg.png" alt="">
+            </div>
+            <div class="container">
+              <h2 class="specific-detail__title">Ищете конкретную деталь?</h2>
+              <h3 class="specific-detail__subtitle">Если у Вас есть артикул - введите его в поле ниже и получите цену <br> ПРЯМО СЕЙЧАС!</h3>
+              <form class="specific-detail__form" action="#">
+                <div class="input">
+                  <div class="input__article">
+                    <input type="text" placeholder="ВВЕДИТЕ АРТИКУЛ ДЕТАЛИ" name="article">
+                  </div>
+                </div>
+                <div class="input">
+                  <div class="input__number">
+                    <input type="tel" placeholder="ВВЕДИТЕ ВАШ ТЕЛЕФОН" name="number">
+                    <img src="img/get-price/call.png" alt="">
+                  </div>
+                </div>
+                <button class="button">УЗНАТЬ ЦЕНУ</button>
+              </form>
+              <p class="specific-detail__text">Мы перезвоним вам в течение 3 минут и назовем цену детали!</p>
+              <div class="specific-detail__our-number">
+                <p class="text">Или Вы можете перезвонить нам сами:</p>
+                <p class="number">+7 (818) 247-47-25</p>
+              </div>
+            </div>
+          </section>
+          <!--Мы гарантируем сохранность деталей во время перевозки!-->
+          <section class="quarantee template">
+            <div class="container">
+              <h2 class="quarantee__title title">Мы гарантируем сохранность деталей <br> во время перевозки!</h2>
+              <div class="quarantee__elements row white">
+                <a href="" class="element">
+                  <div class="element__image">
+                    <img src="img/quarantee/doc.png" alt="">
+                  </div>
+                  <p class="element__text">Гарантия на целостность поставки прописана в договоре</p>
+                  <p class="element__more">ПОДРОБНЕЕ</p>
+                </a>
+                <a href="" class="element">
+                  <div class="element__image">
+                    <img src="img/quarantee/box.png" alt="">
+                  </div>
+                  <p class="element__text">Каждая запчасть доставляется с завода в жесткой упаковке</p>
+                  <p class="element__more">ПОДРОБНЕЕ</p>
+                </a>
+                <a href="" class="element">
+                  <div class="element__image">
+                    <img src="img/quarantee/parts.png" alt="">
+                  </div>
+                  <p class="element__text">Дополнительный контроль качества нашими специалистами</p>
+                  <p class="element__more">ПОДРОБНЕЕ</p>
+                </a>
+              </div>
+            </div>
+          </section>
+          <!--У нас разработаны бонусные системы и скидки для наших клиентов-->
+          <section class="bonuses template">
+            <div class="container">
+              <div class="title">У нас разработаны бонусные системы <br> и скидки для наших клиентов</div>
+              <div class="row">
+                <div class="element">
+                  <div class="element__image">
+                    <p>10%</p>
+                  </div>
+                  <div class="element__text">Дополнительная скидка 10% на вторую запчасть и любые последующие</div>
+                </div>
+                <div class="element">
+                  <div class="element__image">
+                    <p>20%</p>
+                  </div>
+                  <div class="element__text">Скидка 20% при заключении договора на годовое сервисное обслуживание</div>
+                </div>
+                <div class="element">
+                  <div class="element__image">
+                    <img src="img/bonuses/delivery-truck.png" alt="">
+                  </div>
+                  <div class="element__text">Бесплатная доставка по всей России для всех клиентов</div>
+                </div>
+                <div class="element">
+                  <div class="element__image">
+                    <img src="img/bonuses/telemarketer.png" alt="">
+                  </div>
+                  <div class="element__text">Бесплатная круглосуточная техническая поддержка</div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--У Вас остались вопросы?-->
+          <section class="questions template">
+            <div class="container">
+              <h2 class="title">У Вас остались вопросы?</h2>
+              <h3 class="subtitle">На Ваши вопросы отвечает Эдуард</h3>
+              <div class="row">
+                <div class="element">
+                  <ol class="element__list">
+                    <li>
+                      <div class="question">Как заказать деталь правильно?</div>
+                      <div class="answer">
+                        <div class="answer__text">licabo minus distinctio? Ex culpa suscipit in ex corporis! Dolore velit exercitationem voluptate qui facere Similique voluptatum provident a praesentium mollitia?</div>
+                        <div class="answer__cross">
+                          <img src="img/questions/cross.png" alt="">
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="question">Что делать, если запчасть не понадобилась?</div>
+                      <div class="answer">
+                        <div class="answer__text">Dolor qui cum minima ea quas asperiores, neque deleniti, explicabo minus distinctio? Ex culpa suscipit in ex corporis! Dolore velit exercitationem voluptate qui facere Similique voluptatum provident a praesentium mollitia?</div>
+                        <div class="answer__cross">
+                          <img src="img/questions/cross.png" alt="">
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="question">Насколько качественны ваши запчасти?</div>
+                      <div class="answer">
+                        <div class="answer__text">Dolor qui cum minima ea quas asperiores, neque deleniti, explicabo minus distinctio? Ex culpa suscipit in ex corporis! Dolore velit exercitationem voluptate qui facere Similique voluptatum provident a praesentium mollitia?</div>
+                        <div class="answer__cross">
+                          <img src="img/questions/cross.png" alt="">
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="question">Как происходит оплата товара?</div>
+                      <div class="answer">
+                        <div class="answer__text">Dolor qui cum minima ea quas asperiores, neque deleniti, explicabo minus distinctio? Ex culpa suscipit in ex corporis! Dolore velit exercitationem voluptate qui facere Similique voluptatum provident a praesentium mollitia?</div>
+                        <div class="answer__cross">
+                          <img src="img/questions/cross.png" alt="">
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="question">В чем преимущества оригинальных деталей?</div>
+                      <div class="answer">
+                        <div class="answer__text">Dolor qui cum minima ea quas asperiores, neque deleniti, explicabo minus distinctio? Ex culpa suscipit in ex corporis! Dolore velit exercitationem voluptate qui facere Similique voluptatum provident a praesentium mollitia?</div>
+                        <div class="answer__cross">
+                          <img src="img/questions/cross.png" alt="">
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <a href="">
+                        <img src="img/questions/reload.png" alt="">
+                        <span>Еще вопросы</span>
+                      </a>
+                    </li>
+                  </ol>
+                </div>
+                <div class="image">
+                  <img src="img/questions/eduard.png" alt="">
+                  <div class="image__text">Эдуард Викторович, <br> Директор ООО "Eddie`s-Car"</div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--С нами удобно работать!-->
+          <section class="comfort template">
+            <div class="container">
+              <h2 class="title">С нами удобно работать!</h2>
+              <h3 class="subtitle">Более 70% клиентов приходят к нам по рекомендации!</h3>
+              <div class="row white">
+                <div class="element">
+                  <div class="element__image">
+                    <img src="img/comfort/cash.png" alt="">
+                  </div>
+                  <p class="element__text">Вы вносите предоплату в размере 50% от стоимости запчасти</p>
+                </div>
+                <div class="element">
+                  <div class="element__image">
+                    <img src="img/comfort/car.png" alt="">
+                  </div>
+                  <p class="element__text">Отправляем запчасти в день заказа</p>
+                </div>
+                <div class="element">
+                  <div class="element__image">
+                    <img src="img/comfort/list.png" alt="">
+                  </div>
+                  <p class="element__text">Получаете деталь, проверяете, оплачиваете оставшиеся 50%</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--У нас собственный склад!-->
+          <section class="warehouse template">
+            <div class="container">
+              <h2 class="title">У нас собственный склад!</h2>
+              <h3 class="subtitle">Это позволяет нам быстро обрабатывать запросы и отгружать детали <br> в день заказа!</h3>
+              <div class="row">
+                <div class="element">
+                  <div class="element__image">
+                    <img src="img/warehouse/warehouse1.png" alt="">
+                  </div>
+                </div>
+                <div class="element">
+                  <div class="element__image">
+                    <img src="img/warehouse/warehouse2.png" alt="">
+                  </div>
+                </div>
+                <div class="element">
+                  <div class="element__image">
+                    <img src="img/warehouse/warehouse3.png" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--У нас в штате есть мобильные бригады, готовые выехать на сервисное обслуживание, ремонт и проведение диагностики!-->
+          <section class="diagnostic template">
+            <div class="container">
+              <h2 class="title">У нас в штате есть мобильные бригады, <br> готовые выехать на сервисное обслуживание, <br> ремонт и проведение диагностики!</h2>
+              <div class="row white">
+                <div class="element">
+                  <div class="element__image">
+                    <img src="img/diagnostic/delivery.png" alt="">
+                  </div>
+                  <p class="element__text">Организуем выезд специалистов в течение двух дней</p>
+                </div>
+                <div class="element">
+                  <div class="element__image">
+                    <img src="img/diagnostic/toolbox.png" alt="">
+                  </div>
+                  <p class="element__text">Бригады укомплектованы всем необходимым оборудованием для производства работ любой сложности</p>
+                </div>
+                <div class="element">
+                  <div class="element__image">
+                    <img src="img/diagnostic/certificate.png" alt="">
+                  </div>
+                  <p class="element__text">Все специалисты проходят обучение и ежегодную аттестацию</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!--Если Вам необходима бесплатная консультация по вопросу обслуживания-->
+          <section class="consultation">
+            <div class="ibg">
+              <img src="img/consultation/bg.png" alt="">
+            </div>
+            <div class="container">
+              <h2 class="consultation__title">Если Вам необходима бесплатная консультация по вопросу обслуживания</h2>
+              <div class="consultation__our-number">
+                <p class="text">Звоните нам по телефону:</p>
+                <p class="number">+7 (818) 247-47-25</p>
+              </div>
+              <form class="consultation__form" action="#">
+                <div class="input">
+                  <div class="input__number">
+                    <input type="tel" placeholder="ВВЕДИТЕ ВАШ ТЕЛЕФОН" name="number">
+                    <img src="img/get-price/call.png" alt="">
+                  </div>
+                </div>
+                <button class="button">ПЕРЕЗВОНИТЬ СЕЙЧАС</button>
+              </form>
+            </div>
+          </section>
+          <!--Приезжайте в наш офис!-->
+          <section class="welcome">
+            <div class="ibg">
+              <img src="img/welcome/bg.png" alt="">
+            </div>
+            <div class="container">
+              <div class="welcome__title">Приезжайте в наш офис!</div>
+              <div class="welcome__address">г. Архангельск, Москва-Сити, оф. 3725</div>
+              <div class="welcome__number">+7 (818) 247-47-25</div>
+            </div>
+          </section>
+          <!--Местонахождение на карте-->
+          <section class="map">
+            <div class="map__location">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1714.8640910396366!2d40.51425714298816!3d64.54449269489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x441836858b23cd43%3A0xf35372b070d2d7d!2z0L_RgNC-0YHQvy4g0KLRgNC-0LjRhtC60LjQuSwgNjUsINCQ0YDRhdCw0L3Qs9C10LvRjNGB0LosINCQ0YDRhdCw0L3Qs9C10LvRjNGB0LrQsNGPINC-0LHQuy4sIDE2MzAwNA!5e0!3m2!1sru!2sru!4v1634100053982!5m2!1sru!2sru" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </section>
+        </main>
+        <!--Подвал страницы-->
+        @@include('_footer.html')
+      </div>
+      <!--Библиотека jQuery-->
+      <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+      <!--JavaScript файл-->
+      <script src='js/script.min.js'></script>
+    </body>
+</html>

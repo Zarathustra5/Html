@@ -1,0 +1,669 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face { 
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+@import "fonts.scss";
+@import "nullstyle.scss";
+
+html, body{
+}
+
+/*Брейк поинты-----------------------------------------*/
+@media(max-width:1200px){
+  .container{
+    max-width:1030px;
+  }
+}
+
+@media(max-width:1052px){
+  .container{
+    max-width:810px;
+  }
+}
+
+@media(max-width:827px){
+  .container{
+    max-width:none;
+  }
+}
+
+/*Обертка всего содержимого---------------------------------------*/
+.wrapper{
+  font-family:Inter;
+  min-height:100%;
+  overflow:hidden;  
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  max-width:1920px;
+  position:relative;
+  line-height: 1.2;
+  cursor:default;
+}
+
+/*Фоновая картинка---------------------------------------*/
+.ibg{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width:100%;
+  height:100%;
+  z-index:-100;
+  img{
+    display:none;
+  }
+}
+
+/*Контейнер---------------------------------------*/
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:100px 30px;
+}
+
+/*Шаблон стилей страниц со слайдером-------------------------------------*/
+.template{
+  position:relative;
+  text-align:center;
+  min-width:0;
+  .container{
+    padding:100px 30px;
+  }
+  .title{
+    font-size: 36px;
+    font-weight: 900;
+  }
+  .subtitle{
+    font-size: 20px;
+    padding-top:30px;
+  }
+  .row{
+    margin-top:100px;
+    display:flex;
+    justify-content:space-between;
+    min-width:0;
+    .element{
+      &__text{
+        font-size: 18px;
+        padding-top:40px;
+      }
+      &:hover{
+        opacity:0.7;
+      }
+    }
+    @media(max-width:1200px){
+      flex-direction:column;
+      position:relative;
+      overflow:hidden;
+    }
+  }
+}
+
+/* Слайдер */ 
+.slick-slider{} 
+/* Слайдер запущен */ 
+.slick-slider.slick-initialized{} 
+/* Слайдер с точками */ 
+.slick-slider.slick-dotted{} 
+  /* Ограничивающая оболочка */ 
+.slick-list {} 
+/* Лента слайдов */ 
+.slick-track{
+  display:flex;
+}
+  /* Слайд */ 
+.slick-slide{} 
+/* Слайд активный (показывается) */ 
+.slick-slide.slick-active{} 
+/* Слайд основной */ 
+.slick-slide.slick-current{} 
+/* Слайд по центру */ 
+.slick-slide.slick-center{} 
+/* Клонированный слайд */ 
+.slick-slide.slick-cloned{}
+  /* Стрелка */
+.slick-arrow{
+  position:absolute;
+  top:50%;
+  z-index:2;
+  font-size:0;
+  width:30px;
+  height:30px;
+  margin-top:-40px;
+} 
+/* Стрелка влево */ 
+.slick-arrow.slick-prev{
+  left:0;
+  background:url('../img/scroll-prev3.png') 0 0 / 100% no-repeat;
+} 
+/* Стрелка вправо */ 
+.slick-arrow.slick-next{
+  right:0;
+  background:url('../img/scroll-next3.png') 0 0 / 100% no-repeat;
+} 
+/* Стрелка не активная */ 
+.slick-arrow.slick-disabled{}
+  /* Точки (булиты) */ 
+.slick-dots{
+  display:flex;
+  justify-content:center;
+} 
+.slick-dots li{
+  list-style:none;
+  margin:5px;
+  font-size:0;
+}
+/* Активная точка */ 
+.slick-dots li.slick-active button{
+  background-color:transparent;
+  border:1px solid white;
+} 
+/* Элемент точки */ 
+.slick-dots li button{
+  font-size:0;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+} 
+
+/*Страницы с белым фоном*/
+.white{
+  .slick-dots li.slick-active button{
+    background-color:#08243e;
+  } 
+  .slick-dots li button{
+    border:2px solid #08243e;
+  } 
+}
+
+/*Кнопки-----------------------------------------*/
+.button{
+  color:white;
+  width: 370px;
+  height: 70px;
+  background-color: #f7b516;
+  font-size: 17px;
+  font-weight: 700;
+  &:hover{
+    opacity:0.7;
+  }
+}
+
+/*Поля ввода---------------------------------------*/
+.input{
+  width: 370px;
+  height: 70px;
+  input{
+    width: 100%;
+    height: 100%;
+    padding:2em 4em 2em 2em;
+    font-size:15px;
+    &:focus{
+      opacity:0.7;
+    }
+    @media(max-width:510px){
+      font-size:14px;
+    }
+  }
+  img{
+    position:absolute;
+    top:2em;
+    right:2em;
+  }
+}
+
+/*Шапка страницы-----------------------------------------*/
+@import "header.scss";
+
+/*Главный контент страницы-----------------------------------------*/
+.page{
+  flex:1 1 auto;
+}
+
+/*Оригинальные запчасти для белаз-----------------------------------------*/
+.main-screen{
+  position:relative;
+  margin-top:100px;
+  .container{
+    padding:0 30px;
+  }
+  .original-parts{
+    background-color:#f7b516;
+    display:inline-block;
+    padding:100px;
+    &__title{
+      font-size: 40px;
+      line-height: 55px;
+      font-weight: 900;
+    }
+    &__subtitle{
+      margin-top:49px;
+      font-size: 20px;
+      font-weight:900;
+    }
+    &__list{
+      margin-top:52px;
+      li{
+        display:flex;
+        align-items:center;
+        margin-top:48px;
+        font-size: 18px;
+        .text{
+          padding-left:26px;
+        }
+      }
+    }
+    @media(max-width:610px){
+      padding:50px;
+      &__title{
+        font-size:30px;
+      }
+      &__subtitle{
+        font-size:18px;
+      }
+      &__list{
+        li{
+          font-size:16px;
+        }
+      }
+    }
+  }
+  @media(max-width:510px){
+    .container{
+      padding:0;
+    }
+    .original-parts{
+      display:flex;
+      flex-direction:column;
+      padding:30px;
+      &__title{
+        font-size:30px;
+      }
+    }
+  }
+}
+
+/*Получите прайс прямо сейчас на электронную почту!-----------------------*/
+.get-price{
+  position:relative;
+  text-align:right;
+  &__title{
+    font-size: 30px;
+    font-weight: 900;
+  }
+  &__form{
+    margin-top:30px;
+    .inputs{
+      display:flex;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+      .input{
+        margin:30px 0 0 30px;
+        @media(max-width:510px){
+          margin-left:0;
+        }
+        input{
+          background-color: #f2f2f2;
+        }
+        &__email{
+          position:relative;
+        }
+        &__number{
+          position:relative;
+        }
+      }
+    }
+    .send{
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      margin-top:20px;
+      flex-wrap:wrap;
+      &__text{
+        font-weight:700;
+      }
+      &__clock{
+        margin-top:10px;
+        margin-left:30px;
+      }
+      &__button{
+        margin-top:10px;
+        height: 80px;
+        background-color: #1866af;
+        margin-left:30px;
+        @media(max-width:510px){
+          margin-left:0;
+        }
+      }  
+    }
+  }
+}
+
+/*Вам не придется ждать!-----------------------------------------*/
+.dont-wait{
+  text-align:center;
+  color:white;
+  background-color:#08243e;
+  .row{
+    .element{
+      width:232px;
+      &__image{
+        height:100px;
+        display:flex;
+        justify-content:center;
+        align-items:flex-end;
+      }
+    }
+  }
+}
+
+/*Ищете конкретную деталь?-----------------------------------------*/
+.specific-detail{
+  color:white;
+  text-align:center;
+  position:relative;
+  &__title{
+    font-size: 30px;
+    font-weight: 900;
+  }
+  &__subtitle{
+    font-size: 20px;
+    margin-top:30px;
+  }
+  &__form{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:60px;
+    .input{
+      &__number{
+        margin-left:30px;
+        position:relative;
+        @media(max-width:799px){
+          margin:30px 0 0 0;
+        }
+      }
+    }
+    .button{
+      margin-left:30px;
+      @media(max-width:1200px){
+        margin:60px 0 0 0;
+      }
+    }
+  }
+  &__text{
+    margin-top:60px;
+  }
+  &__our-number{
+    .text{
+      margin-top:30px;
+    }
+    .number{
+      font-size: 30px;
+      font-weight: 700;
+      margin-top:16px;
+    }
+  }
+}
+
+/*Мы гарантируем сохранность деталей во время перевозки!------------------*/
+.quarantee{
+  .element{
+    width:370px;
+    &__text{
+      color:black;
+    }
+    &__more{
+      margin-top:40px;
+      color:black;
+      font-size: 18px;
+      font-weight: 700;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    &:hover{
+      opacity:0.7;
+    }
+  }
+}
+
+/*У нас разработаны бонусные системы и скидки для наших клиентов----------*/
+.bonuses{
+  color:white;
+  background-color:#08243e;
+  .row{
+    .element{
+      width:260px;
+      &__image{
+        width:100px;
+        height:100px;
+        border:2px solid white;
+        border-radius:50%;
+        padding:40px;
+        display:inline-flex;
+        justify-content:center;
+        align-items:center;
+        p{
+          font-size: 30px;
+          font-weight: 700;
+          cursor: default;
+        }
+      }
+    }
+  }
+}
+
+/*У Вас остались вопросы?-----------------------------------------*/
+.questions{
+  color:white;
+  background-color:#0b3554;
+  .row{
+    .element{
+      &__list{
+        font-size: 16px;
+        font-weight: 700;
+        text-align:left;
+        li{
+          text-decoration:1px underline;
+          margin:55px 0 0 30px;
+          padding-left:20px;
+          position:relative;
+          cursor:pointer;
+          .answer{
+            position:absolute;
+            top:200%;
+            left:5%;
+            z-index:2;
+            background-color:white;
+            color:black;
+            padding:15px 46px 18px 15px;
+            display:none;
+            height:130px;
+            overflow:auto;
+            &__cross{
+              position:absolute;
+              right:5%;
+              top:10%;
+              z-index:2;
+            }
+            &:before{
+              content:'';
+              border-left:10px solid transparent;
+              border-right:10px solid transparent;
+              border-bottom:13px solid white;
+              position:absolute;
+              top:-7%;
+              left:3%;
+            }
+          }
+          a{
+            color:white;
+            img{
+              margin-left:-40px;
+              padding-right:20px;
+            }
+          }
+          &:hover{
+            color: #579eff;
+            text-decoration: none;
+          }
+          &:last-child{
+            list-style:none;
+          }
+        }
+      }
+      &:hover{
+        opacity:1;
+      }
+    }
+    .image{
+      margin-top:90px;
+      position:relative;
+      align-self:flex-end;
+      .image__text{
+        position:absolute;
+        bottom:0;
+        left:0;
+        opacity: 0.8;
+        background-color: #0b3554;
+        text-align:left;
+        padding:10px 20px;
+      }
+      img{
+        @media(max-width:630px){
+          width:420px;
+        }
+        @media(max-width:480px){
+          width:280px;
+        }
+      }
+    }
+  }
+}
+
+/*С нами удобно работать!-----------------------------------------*/
+.comfort{
+  .row{
+    .element{
+      width:230px;
+    }
+  }
+}
+
+/*У нас собственный склад!-----------------------------------------*/
+.warehouse{
+  color:white;
+  background-color:#0b3554;
+  @media(max-width:800px){
+    .row{
+      justify-content:center;
+    }
+  }
+  @media(max-width:420px){
+    .element{
+      &__image img{
+        max-width:260px;
+      }
+    }
+  }
+}
+
+/*У нас в штате есть мобильные бригады, готовые выехать на сервисное обслуживание, ремонт и проведение диагностики!-----------------------------------*/
+.diagnostic{
+  .row{
+    .element{
+      width:320px;
+      &__image{
+        width: 170px;
+        height: 170px;
+        border:2px solid #ffbc3b;
+        border-radius:50%;
+        padding:56px 50px;
+        display:inline-flex;
+        justify-content:center;
+        align-items:center;
+      }
+    }
+  }
+}
+
+/*Если Вам необходима бесплатная консультация по вопросу обслуживания-----*/
+.consultation{
+  position:relative;
+  color:white;
+  text-align:center;
+  &__title{
+    font-size: 30px;
+    font-weight: 900;
+  }
+  &__our-number{
+    margin-top:60px;
+    .number{
+      font-size: 30px;
+      font-weight: 700;
+      margin-top:16px;
+    }
+  }
+  &__form{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:60px;
+      @media(max-width:799px){
+        flex-wrap:wrap;
+      }
+    .input{
+      &__number{
+        position:relative;
+      }
+    }
+    .button{
+      margin-left:30px;
+      @media(max-width:799px){
+        margin:30px 0 0 0;
+      }
+    }
+  }
+}
+
+/*Приезжайте в наш офис!-----------------------------------------*/
+.welcome{
+  text-align:center;
+  position:relative;
+  &__title{
+    font-size: 30px;
+    font-weight: 900;
+  }
+  &__address{
+    font-size: 18px;
+    margin-top:100px;
+  }
+  &__number{
+    font-size: 24px;
+    font-weight: 700;
+    margin-top:34px;
+  }
+}
+
+/*Местонахождение на карте-----------------------------------------*/
+.map{
+  &__location{
+    iframe{
+    width:100%;
+    height:375px;
+
+    }
+  }
+}
+
+/*Подвал страницы-----------------------------------------*/
+@import "footer.scss";
