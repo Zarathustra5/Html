@@ -28,21 +28,48 @@ function ibg(){
 }
 ibg();
 
+//Боковая панель с новостями
+let sidebarBurger = document.querySelector(".sidebar-burger"),
+    sidebarUndo = document.querySelector(".sidebar .undo"),
+    sidebarShowForm = document.querySelector(".sidebar .show-form"),
+    sidebarShowNews = document.querySelector(".sidebar .show-news"),
+    sidebar = document.querySelector(".sidebar"),
+    sidebarForm = document.querySelector(".sidebar__form"),
+    sidebarNews = document.querySelector(".sidebar__news");
+sidebarBurger.onclick = function(){
+  sidebarBurger.classList.add("_active");
+  sidebar.classList.add("_active");
+  document.body.classList.add("_locked");
+  burger.classList.remove("_active");
+  menu.classList.remove("_active");
+}
+sidebarUndo.onclick = function(){
+  sidebarBurger.classList.remove("_active");
+  sidebar.classList.remove("_active");
+  document.body.classList.remove("_locked");
+  sidebarForm.classList.remove("_active");
+  sidebarNews.classList.remove("_active");
+}
+sidebarShowForm.onclick = function(){
+  sidebarForm.classList.toggle("_active");
+  sidebarNews.classList.remove("_active");
+}
+sidebarShowNews.onclick = function(){
+  sidebarForm.classList.remove("_active");
+  sidebarNews.classList.toggle("_active");
+}
+
 //Бургер
 let burger = document.querySelector(".header__burger");
 let menu = document.querySelector(".menu");
 burger.onclick = function(){
   burger.classList.toggle("_active");
   menu.classList.toggle("_active");
-}
-
-//Боковая панель с новостями
-let sidebarBurger = document.querySelector(".sidebar-burger");
-let sidebar = document.querySelector(".sidebar");
-sidebarBurger.onclick = function(){
-  sidebarBurger.classList.toggle("_active");
-  sidebar.classList.toggle("_active");
-  document.body.classList.toggle("_locked");
+  sidebarBurger.classList.remove("_active");
+  sidebar.classList.remove("_active");
+  document.body.classList.remove("_locked");
+  sidebarForm.classList.remove("_active");
+  sidebarNews.classList.remove("_active");
 }
 
 //Скролл к элементу на странице
