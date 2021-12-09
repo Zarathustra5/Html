@@ -808,10 +808,6 @@ button.blue:hover {
   display: flex;
 }
 
-.fill__content .sidebar .news:hover .news__text .caption {
-  text-decoration: underline;
-}
-
 .fill__content .sidebar .news:first-child {
   margin-top: 6px;
 }
@@ -839,6 +835,14 @@ button.blue:hover {
   background-color: #db3259;
   width: 37px;
   height: 37px;
+}
+
+.fill__content .sidebar .news:hover .news__text .caption {
+  text-decoration: underline;
+}
+
+.fill__content .sidebar .news:hover .news__image:before {
+  background-color: #ba1d41;
 }
 
 .fill__content .sidebar .news__text {
@@ -1152,17 +1156,25 @@ button.blue:hover {
 
   .fill__content .sidebar__news._active {
     display: block;
+  }
+
+  .fill__content .sidebar__news {
     position: fixed;
     top: 100px;
     left: 70px;
     z-index: 5;
-  }
-
-  .fill__content .sidebar__news {
     display: none;
     overflow: auto;
     height: 100%;
     width: 220px;
+  }
+
+  .fill__content .sidebar .news:first-child {
+    margin-top: 0;
+  }
+
+  .fill__content .sidebar .news:last-child {
+    margin-bottom: 100px;
   }
 }
 
