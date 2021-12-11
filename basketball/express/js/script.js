@@ -28,7 +28,7 @@ function ibg(){
 }
 ibg();
 
-//Боковая панель с новостями
+//Боковая панель с новостями на маленьких экранах
 let sidebarBurger = document.querySelector(".sidebar-burger"),
     sidebarUndo = document.querySelector(".sidebar .undo"),
     sidebarShowForm = document.querySelector(".sidebar .show-form"),
@@ -187,11 +187,12 @@ calendarBtn.onclick = function(){
 }
 
 //Кнопка показать еще ставки
-let showMoreBtns = document.querySelectorAll("button.show-more"),
-    matchesGroups = document.querySelectorAll(".matches-group");
+let showMoreBtns = document.querySelectorAll("button.show-more");
 showMoreBtns.forEach(showMoreBtn => {
   showMoreBtn.onclick = function(){
     showMoreBtn.classList.add("_off");
-    showMoreBtn.parentNode.nextElementSibling.classList.add("_active");
+    if (showMoreBtn.parentNode.nextElementSibling != null){
+      showMoreBtn.parentNode.nextElementSibling.classList.add("_active");
+    }
   }
 })
