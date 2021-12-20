@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-    	<title>Counter-Strike</title>
+    	<title>Counter-Strike (New Year edition)</title>
     	<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
       <meta name="viewport" content="user-scalable=0">
         <link rel="stylesheet" href="source/css/style.css">
         <link rel="shortcut icon" href="img/icon2.png">
     </head>
-    <body>
+    <body onload="draw();">
       <div class='wrapper'>
 <!--Карта-------------------------------------------------------------->
         <div class="background">
-          <img class='bg' src="img/map1.jpeg" alt="">
+          <img class='bg' src="img/map4.jpg" alt="">
         </div>
+        <canvas id="snow"></canvas>
 <!--Противник в движении-------------------------------------------------------------->
         <img class='aim'src="img/enemy2.png" alt="">
 <!--Противник без движения-------------------------------------------------------------->
@@ -21,6 +22,7 @@
         <img class='icon'src="img/im7.png" alt="">
 <!--Огонь-------------------------------------------------------------->
         <img class='fire' src="img/fire.png" alt="">
+        <img class='tree' src="img/tree.png" alt="">
 <!--Оружие-------------------------------------------------------------->
         <img class='weaphon' src="img/gun1.png" alt="">
 <!--Просьба повернуть экран-------------------------------------------------------------->

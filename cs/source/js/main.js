@@ -87,3 +87,61 @@ window.addEventListener("resize", function() {
     changeOr.style.display='none';
   }
 });
+
+//
+function draw() {
+  var canvas = document.getElementById("snow");
+  if (canvas.getContext) {
+    var ctx = canvas.getContext("2d");
+    var snowArr = [];
+    function Snow(x,y){
+      this.x = x;
+      this.y = y;
+      this.z = Math.floor(Math.random() * canvas.height);
+      this.vy = 0.3;
+      this.width = 2;
+      this.height = 2;
+      this.color = "white";
+      this.draw = draw;
+      this.del = del;
+    }
+    function draw(){
+      ctx.fillStyle = this.color;
+      ctx.fillRect(this.x,this.y, this.width, this.height);
+      setTimeout(del,3000);
+    }
+    function del(){
+      ctx.clearRect(0,0, canvas.width, canvas.height);
+    }
+    while (snowArr.length < 30){
+      var snow = new Snow(Math.floor(Math.random() * canvas.width),Math.floor(Math.random() * canvas.height));
+      snowArr.push(snow);
+    }
+    for (let i = 0; i < snowArr.length; i++){
+      function moveSnow(){
+        snowArr[i].draw();
+        snowArr[i].y += snowArr[i].vy;
+        if (snowArr[i].y > canvas.height) snowArr[i].y = 0;
+        requestAnimationFrame(moveSnow);
+      }
+      moveSnow();
+      function deleteSnow(){
+        snowArr[i].del();
+        requestAnimationFrame(removeSnow);
+      }
+    }
+    /*var snow = {
+      x: 7,
+      y: 5,
+      z: Math.floor(Math.random() * canvas.height),
+      vy: 1,
+      width: 2,
+      height: 2,
+      color: "white",
+      draw: function(){
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+        ctx.fillStyle = this.color;
+      }
+    }*/
+  }
+}
