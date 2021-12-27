@@ -94,6 +94,7 @@ function draw() {
   if (canvas.getContext) {
     var ctx = canvas.getContext("2d");
     var snowArr = [];
+    var count = [];
     function Snow(x,y){
       this.x = x;
       this.y = y;
@@ -108,7 +109,6 @@ function draw() {
     function draw(){
       ctx.fillStyle = this.color;
       ctx.fillRect(this.x,this.y, this.width, this.height);
-      setTimeout(del,3000);
     }
     function del(){
       ctx.clearRect(0,0, canvas.width, canvas.height);
@@ -120,6 +120,11 @@ function draw() {
     for (let i = 0; i < snowArr.length; i++){
       function moveSnow(){
         snowArr[i].draw();
+      if (count[i] == undefined){
+        count[i] = 0;
+      }else{
+        setTimeout(del,3000);
+      }
         snowArr[i].y += snowArr[i].vy;
         if (snowArr[i].y > canvas.height) snowArr[i].y = 0;
         requestAnimationFrame(moveSnow);
