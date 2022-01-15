@@ -273,7 +273,7 @@ h6 {
 
 .header__burger {
   position: fixed;
-  top: 94%;
+  bottom: -35px;
   right: 0;
   left: 0;
   margin: auto;
@@ -300,7 +300,7 @@ h6 {
 }
 
 .header__burger:before {
-  top: 18%;
+  bottom: 77%;
 }
 
 .header__burger:after {
@@ -314,7 +314,7 @@ h6 {
 .header .header__burger._active {
   width: 200%;
   height: 200%;
-  top: -50%;
+  bottom: -50%;
   right: -50%;
   left: -50%;
   -webkit-transition: all 0.7s ease 0s;
@@ -330,7 +330,7 @@ h6 {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
-  top: 73.5%;
+  bottom: 26.5%;
   right: 0;
   left: 0;
   margin: auto;
@@ -340,7 +340,7 @@ h6 {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  top: 73.5%;
+  bottom: 26.5%;
   right: 0;
   left: 0;
   margin: auto;
@@ -647,9 +647,9 @@ body._locked {
   }
 
   .header .site-menu__list {
-    -webkit-transition: height 1s ease 0s;
-    -o-transition: height 1s ease 0s;
-    transition: height 1s ease 0s;
+    -webkit-transition: height 0.5s ease 0s;
+    -o-transition: height 0.5s ease 0s;
+    transition: height 0.5s ease 0s;
     position: absolute;
     top: 25px;
     height: 0;
@@ -658,9 +658,9 @@ body._locked {
   }
 
   .header .site-menu__list .link {
-    -webkit-transition: left 1s ease 0s;
-    -o-transition: left 1s ease 0s;
-    transition: left 1s ease 0s;
+    -webkit-transition: left 0.5s ease 0s;
+    -o-transition: left 0.5s ease 0s;
+    transition: left 0.5s ease 0s;
     position: relative;
     left: -1000px;
   }
@@ -671,8 +671,8 @@ body._locked {
     position: relative;
     top: -2px;
     z-index: 1;
-    width: 50px;
-    height: 20px;
+    width: 70px;
+    height: 25px;
     color: white;
   }
 
