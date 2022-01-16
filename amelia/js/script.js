@@ -72,3 +72,16 @@ siteMenuShow.onclick = function(){
   siteMenuList.classList.toggle("_active");
 }
 
+//Вход в аккаунт
+let loginBtn = document.querySelector(".header .main-menu__login-btn");
+let loginForm = document.querySelector(".header .main-menu__login-form");
+loginBtn.onclick = function(){
+  loginBtn.classList.toggle("_active");
+  loginForm.classList.toggle("_active");
+}
+
+//В закладки
+let bookmark = document.querySelector(".header .site-menu__bookmark");
+bookmark.onclick = function(){
+  bookmark.classList.toggle("_active");
+}

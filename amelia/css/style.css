@@ -194,10 +194,15 @@ h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: #eb4644;
 }
 
-.header .site-menu__bookmark:hover svg {
+.header .site-menu__bookmark._active svg {
   fill: #eb4644;
+}
+
+.header .site-menu__bookmark:hover {
+  text-decoration: underline;
 }
 
 .header .site-menu__bookmark svg {
@@ -209,7 +214,6 @@ h6 {
 
 .header .site-menu__bookmark span {
   padding-left: 9px;
-  color: #eb4644;
   font-size: 13px;
   line-height: 21px;
 }
@@ -252,7 +256,103 @@ h6 {
 }
 
 .header .main-menu__login {
+  position: relative;
   padding-left: 80px;
+}
+
+.header .main-menu__login-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header .main-menu__login-btn .login-btn__body {
+  margin-left: 30px;
+  position: relative;
+}
+
+.header .main-menu__login-btn._active .login-btn__body:before {
+  content: "10";
+  color: #eb4644;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+.header .main-menu__login-form {
+  opacity: 0;
+  width: 362px;
+  height: 299px;
+  -webkit-transition: opacity 0.5s ease 0s;
+  -o-transition: opacity 0.5s ease 0s;
+  transition: opacity 0.5s ease 0s;
+  background-color: #f8eee7;
+  position: absolute;
+  bottom: 500px;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 30px;
+}
+
+.header .main-menu__login-form._active {
+  opacity: 1;
+  bottom: -300px;
+  -webkit-transition: opacity 0.5s ease 0s;
+  -o-transition: opacity 0.5s ease 0s;
+  transition: opacity 0.5s ease 0s;
+}
+
+.header .main-menu__login-form input {
+  height: 51px;
+  width: 100%;
+  border: 1px solid #c4c4c4;
+  color: #2b2c33;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 0 22px;
+}
+
+.header .main-menu__login-form input:nth-child(2) {
+  margin-top: 12px;
+}
+
+.header .main-menu__login-form button {
+  width: 137px;
+  height: 48px;
+  background-color: #eb4644;
+  font-size: 16px;
+  line-height: 21px;
+  color: white;
+  margin: 22px 0 10px 0;
+}
+
+.header .main-menu__login-form button:hover {
+  background-color: FireBrick;
+}
+
+.header .main-menu__login-form a {
+  display: block;
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 13px;
+  text-decoration: underline;
+  color: #eb4644;
+}
+
+.header .main-menu__login-form a:hover {
+  text-decoration: none;
 }
 
 .header .location {
@@ -264,6 +364,10 @@ h6 {
 .header .location__main {
   text-decoration: underline;
   color: #eb4644;
+}
+
+.header .location__main:hover {
+  text-decoration: none;
 }
 
 .header .location__products,
@@ -440,7 +544,7 @@ body._locked {
 }
 
 .pagination__arrow svg:hover {
-  opacity: 0.8;
+  background-color: FireBrick;
 }
 
 .pagination__arrow-prev {
@@ -639,11 +743,16 @@ body._locked {
 
   .header .site-menu__list._active .link {
     display: block;
-    height: 20px;
+    height: 30px;
+    width: 100%;
     color: white;
     font-size: 12px;
-    margin: 10px 10px;
+    padding: 12px 12px;
     left: 0;
+  }
+
+  .header .site-menu__list._active .link:hover {
+    background-color: FireBrick;
   }
 
   .header .site-menu__list {
@@ -674,6 +783,10 @@ body._locked {
     width: 70px;
     height: 25px;
     color: white;
+  }
+
+  .header .site-menu__show:hover {
+    background-color: FireBrick;
   }
 
   .header .site-menu__show._active:after {
@@ -752,6 +865,10 @@ body._locked {
     padding-left: 0;
   }
 
+  .header .main-menu__login-form {
+    right: -128px;
+  }
+
   .product {
     display: block;
     text-align: center;
@@ -806,6 +923,13 @@ body._locked {
             order: 2;
   }
 }
+
+@media (max-width: 445px) {
+  .header .main-menu__login-form {
+    right: calc((100vw - 60px - 106px) / -2);
+    width: calc(100vw - 60px);
+  }
+}
 @supports (-webkit-appearance:none){
 
 }
@@ -843,6 +967,14 @@ body._locked {
 }
 
  @media (max-width: 827px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 445px){
 
 @supports (-webkit-appearance:none){
 
