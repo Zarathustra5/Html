@@ -109,9 +109,11 @@ const swiper = new Swiper('.swiper3', {
 //Бургер
 let burger = document.querySelector(".header__burger");
 let menu = document.querySelector(".menu");
+let main = document.querySelector("main");
 burger.onclick = function(){
   burger.classList.toggle("_active");
   menu.classList.toggle("_active");
+  main.classList.toggle("_active");
   document.body.classList.toggle("_locked");
 }
 
