@@ -98,7 +98,6 @@ function getFormValue(event) {
     loginBtnUser.querySelector(".email").textContent = formData.get("login");
     loginBtnUser.querySelector(".name").textContent = "Новый пользователь";
     loginBtn.style.paddingLeft = "0";
-    console.log(formData.get("login"));
   }
 }
 loginForm.addEventListener("submit", getFormValue);

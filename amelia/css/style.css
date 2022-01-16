@@ -219,7 +219,6 @@ h6 {
 }
 
 .header .main-menu .container {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -933,6 +932,9 @@ body._locked {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
+  }
+
+  .header .main-menu__login-btn {
     padding-left: 0;
   }
 
@@ -995,10 +997,10 @@ body._locked {
   }
 }
 
-@media (max-width: 445px) {
+@media (max-width: 422px) {
   .header .main-menu__login-form {
     right: calc((100vw - 60px - 106px) / -2);
-    width: calc(100vw - 60px);
+    width: calc(100vw - 50px);
   }
 }
 @supports (-webkit-appearance:none){
@@ -1045,7 +1047,7 @@ body._locked {
 
 }
 
- @media (max-width: 445px){
+ @media (max-width: 422px){
 
 @supports (-webkit-appearance:none){
 
