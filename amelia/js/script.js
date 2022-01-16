@@ -74,11 +74,34 @@ siteMenuShow.onclick = function(){
 
 //Вход в аккаунт
 let loginBtn = document.querySelector(".header .main-menu__login-btn");
+let loginBtnUser = document.querySelector(".header .login-btn__user");
 let loginForm = document.querySelector(".header .main-menu__login-form");
+let loginAccount = document.querySelector(".header .main-menu__login-account");
+let isAuthorized = false;
 loginBtn.onclick = function(){
   loginBtn.classList.toggle("_active");
-  loginForm.classList.toggle("_active");
+  if (isAuthorized){
+    loginAccount.classList.toggle("_active");
+  }else{
+    loginForm.classList.toggle("_active");
+  }
 }
+
+//Данные формы
+function getFormValue(event) {
+  event.preventDefault();     
+  let formData = new FormData(loginForm);
+  if (formData.get("login") != "" && formData.get("password") != ""){
+    isAuthorized = true;
+    loginBtn.classList.remove("_active");
+    loginForm.classList.remove("_active");
+    loginBtnUser.querySelector(".email").textContent = formData.get("login");
+    loginBtnUser.querySelector(".name").textContent = "Новый пользователь";
+    loginBtn.style.paddingLeft = "0";
+    console.log(formData.get("login"));
+  }
+}
+loginForm.addEventListener("submit", getFormValue);
 
 //В закладки
 let bookmark = document.querySelector(".header .site-menu__bookmark");

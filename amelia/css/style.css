@@ -219,6 +219,7 @@ h6 {
 }
 
 .header .main-menu .container {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -257,13 +258,39 @@ h6 {
 
 .header .main-menu__login {
   position: relative;
-  padding-left: 80px;
 }
 
 .header .main-menu__login-btn {
+  padding-left: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.header .main-menu__login-btn .login-btn__user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+.header .main-menu__login-btn .login-btn__user .email {
+  color: #eb4644;
+  text-decoration: underline;
+}
+
+.header .main-menu__login-btn .login-btn__user .name {
+  padding-top: 5px;
+  color: #2f2f2f;
+  opacity: 0.6;
 }
 
 .header .main-menu__login-btn .login-btn__body {
@@ -277,6 +304,53 @@ h6 {
   position: absolute;
   top: 30%;
   left: 30%;
+}
+
+.header .main-menu__login-account {
+  opacity: 0;
+  width: 230px;
+  height: 70px;
+  -webkit-transition: opacity 0.5s ease 0s;
+  -o-transition: opacity 0.5s ease 0s;
+  transition: opacity 0.5s ease 0s;
+  background-color: #f8eee7;
+  position: absolute;
+  bottom: 500px;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 30px;
+}
+
+.header .main-menu__login-account._active {
+  opacity: 1;
+  bottom: -70px;
+  -webkit-transition: opacity 0.5s ease 0s;
+  -o-transition: opacity 0.5s ease 0s;
+  transition: opacity 0.5s ease 0s;
+}
+
+.header .main-menu__login-account a {
+  display: block;
+  margin: 5px 0;
+  color: #2b2c33;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.header .main-menu__login-account a:last-child {
+  color: #eb4644;
 }
 
 .header .main-menu__login-form {
@@ -387,9 +461,6 @@ h6 {
   cursor: pointer;
   z-index: 3;
   background-color: #eb4644;
-  -webkit-transition: all 0.7s ease 0s;
-  -o-transition: all 0.7s ease 0s;
-  transition: all 0.7s ease 0s;
 }
 
 .header__burger:before,
@@ -419,11 +490,11 @@ h6 {
   width: 200%;
   height: 200%;
   bottom: -50%;
-  right: -50%;
-  left: -50%;
   -webkit-transition: all 0.7s ease 0s;
   -o-transition: all 0.7s ease 0s;
   transition: all 0.7s ease 0s;
+  right: -50%;
+  left: -50%;
 }
 
 .header .header__burger._active span {
@@ -452,6 +523,9 @@ h6 {
 
 .header .product-menu._active {
   top: 0;
+  -webkit-transition: all 0.7s ease 0s;
+  -o-transition: all 0.7s ease 0s;
+  transition: all 0.7s ease 0s;
 }
 
 body._locked {
@@ -804,9 +878,6 @@ body._locked {
     z-index: 4;
     font-size: 18px;
     overflow: hidden;
-    -webkit-transition: all 0.7s ease 0s;
-    -o-transition: all 0.7s ease 0s;
-    transition: all 0.7s ease 0s;
   }
 
   .header .product-menu .container {
