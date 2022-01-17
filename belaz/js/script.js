@@ -42,12 +42,12 @@ let li = document.querySelectorAll(".question");
 let cross = document.querySelectorAll(".answer__cross");
 for (let elem of li){
   elem.onclick = function(){
-    elem.nextElementSibling.style.display = "block";
+    elem.nextElementSibling.classList.toggle("_active");
   }
 }
 for (let elem of cross){
   elem.onclick = function(){
-    elem.parentNode.style.display = "none";
+    elem.parentNode.classList.remove("_active");
   }
 }
 
@@ -86,13 +86,12 @@ $(document).ready(function(){
     dots:true,
     mobileFirst: true,
     arrows:false,
+    infinite: false,
     responsive:[
       {
-        breakpoint:1052,
+        breakpoint:700,
         settings: {
           arrows:true,
-          slidesToShow: 2,
-          slidesToScroll: 2,
         }
       },
       {
