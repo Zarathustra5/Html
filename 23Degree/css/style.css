@@ -1231,6 +1231,15 @@ body._locked {
   margin-top: 15px;
 }
 
+.questions__content .text__contacts .contact:hover {
+  color: #19b6fe;
+}
+
+.questions__content .text__contacts .contact:hover .contact__svg {
+  fill: #19b6fe;
+  border: 1px solid #19b6fe;
+}
+
 .questions__content .text__contacts .contact:first-child {
   margin-top: 0;
 }
@@ -1326,6 +1335,21 @@ body._locked {
   border: 1px solid white;
   border-radius: 5px;
   padding: 5px;
+}
+
+.footer__links .media__svg.facebook:hover {
+  fill: #485a96;
+  border: 1px solid #485a96;
+}
+
+.footer__links .media__svg.google:hover {
+  fill: #dc4a38;
+  border: 1px solid #dc4a38;
+}
+
+.footer__links .media__svg.instagram:hover {
+  fill: #ec713d;
+  border: 1px solid #ec713d;
 }
 
 .footer__links .media__svg:last-child {
