@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>Змейка</title>
   <style>
+.changeor._active{
+  display:flex;
+}
 .changeor{
   display:none;
   width:100%;
@@ -39,16 +42,14 @@ html, body{
 }
 button{
   position:absolute;
-  width:60px;
-  height:60px;
+  width:80px;
+  height:80px;
   background:linear-gradient(45deg, coral, DodgerBlue);
   color:white;
   border-radius:5px;
 }
-button:hover{
-}
 #up{
-  bottom:120px;
+  bottom:140px;
   left:50px;
 } 
 #down{
@@ -58,7 +59,7 @@ button:hover{
 }
 #left{
   bottom:50px;
-  right:120px;
+  right:140px;
 } 
 #right{
   bottom:50px;
@@ -88,7 +89,7 @@ button:hover{
   <div class="wrapper">
     <canvas id="canvas" width="400" height="400"></canvas>
     <div class="colorChange">
-      <input id="snakeColor" type="color">
+      <input value="#00FF00" id="snakeColor" type="color">
       <p id="colorLabel">Цвет змейки</p>
     </div>
     <button id="up">^</button>
@@ -113,6 +114,7 @@ button:hover{
     let downBtn = document.getElementById("down");
     let again = document.getElementById("again");
     let snakeColor = document.getElementById("snakeColor");
+    let isGameWorking = true;
 
     leftBtn.onclick = () => snake.nextDir = "left";
     rightBtn.onclick = () => snake.nextDir = "right";
@@ -127,16 +129,19 @@ button:hover{
 
     function checkFirstOrientation(){
       if (outerHeight > outerWidth){
-        changeOr.style.display='flex';
+        changeOr.classList.add("_active");
+        isGameWorking = false;
       }
     }
     checkFirstOrientation();
 
     window.addEventListener("resize", function() {
       if (outerHeight > outerWidth){
-        changeOr.style.display='flex';
+        changeOr.classList.add("_active");
+        isGameWorking = false;
       }else{
-        changeOr.style.display='none';
+        changeOr.classList.remove("_active");
+        isGameWorking = true;
       }
     });
     //---------------------------------------------------
@@ -147,7 +152,6 @@ button:hover{
         count = 0,
         width = canvas.width / blockSize,
         height = canvas.height / blockSize,
-        isGameWorking = true,
         isCollision;
 
 function border(){
