@@ -1,12 +1,3 @@
 /*
   Access-Control-Allow-Origin: *
-  customHeaders:
-    - pattern: '**/*'
-      headers:
-        - key: 'X-Author'
-          value: "google.103770510085814480223"
-  customHeaders:
-    - pattern: '*'
-      headers:
-        - key: 'X-Author'
-          value: "google.103770510085814480223"
+  x-Author: google.103770510085814480223
