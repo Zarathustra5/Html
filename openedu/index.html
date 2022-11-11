@@ -1,20 +1,30 @@
-google.103770510085814480223
-<script>
-  addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request));
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <h1>google.103770510085814480223</h1>
+  <script>
+    addEventListener('fetch', event => {
+    event.respondWith(handleRequest(event.request));
+  });
 
-async function handleRequest(request) {
-  // This proxies your Pages application under the condition that your Worker script is deployed on the same custom domain as your Pages project
-  const response = await fetch(request);
+  async function handleRequest(request) {
+    // This proxies your Pages application under the condition that your Worker script is deployed on the same custom domain as your Pages project
+    const response = await fetch(request);
 
-  // Clone the response so that it is no longer immutable
-  const newResponse = new Response(response.body, response);
+    // Clone the response so that it is no longer immutable
+    const newResponse = new Response(response.body, response);
 
-  // Add a custom header with a value
-  newResponse.headers.append('X-Author', 'google.103770510085814480223');
+    // Add a custom header with a value
+    newResponse.headers.append('X-Author', 'google.103770510085814480223');
 
-  return newResponse;
-}
+    return newResponse;
+  }
 
-</script>
+  console.log("hi");
+  </script>
+</body>
+</html>
