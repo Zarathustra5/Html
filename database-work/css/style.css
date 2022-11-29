@@ -1,0 +1,217 @@
+/*Обнуление шрифта*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family: inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::moz-focus-inner {padding: 0;border: 0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul-li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
+/*---------------------------------------------------*/
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu__item {
+  background: transparent;
+  border: 1px solid #007bff;
+  color: #007bff;
+  padding: 10px;
+  margin: 20px 10px 0 10px;
+}
+.menu__item.checked,
+.menu__item:hover {
+  background: #007bff;
+  color: white;
+}
+
+h1 {
+  color: red;
+}
+
+body {
+  background: #212529;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.container {
+  padding: 0 10px;
+}
+
+.wrapper {
+  flex: 1 0 auto;
+  overflow: auto;
+}
+
+.footer {
+  background: #007bff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  line-height: 24px;
+  text-align: center;
+}
+
+.footer img{
+  width: 40px;
+}
+
+.table {
+  overflow-x: auto;
+}
+
+table {
+  border-spacing: 0px;
+  margin:  70px auto 50px auto;
+}
+
+.table__tools {
+  display: flex;
+  position: relative;
+  top: 0;
+  left: -110px;
+  transition: all .3s ease 0s;
+  z-index: 1;
+}
+@media(max-width:800px){
+  .table__tools {
+    left: 0;
+  }
+}
+
+tr:hover .table__tools {
+  left: 0;
+}
+
+button {
+  background: transparent;
+}
+
+.table__tools img{
+  width: 25px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.table__tools img:hover{
+  border: 1px solid transparent;
+}
+
+#form-delete input {
+  display: none;
+}
+
+input[name="form"] {
+  display: none;
+}
+
+@media(max-width: 450px) {
+  #form-add {
+    width: 100%;
+  }
+  #form-add div {
+    max-width: 224px;
+  }
+}
+
+#form-add input:first-child {
+  display: none;
+}
+
+th,td {
+  border: 1px solid white;
+  padding: 10px;
+  background: #212529;
+  position: relative;
+  z-index: 2;
+}
+
+.add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.add button {
+  width: 35px;
+  height: 35px;
+  margin-top: 10px;
+}
+
+.add input {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 10px 0 0;
+}
+
+.add form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+tr.is-changing .table__tools,
+tr.is-changing .table__column {
+  display: none;
+}
+
+.table__change-submit,
+.table__change-column {
+  display: none;
+}
+
+tr.is-changing .table__change-submit,
+tr.is-changing .table__change-column {
+  display: table-cell;
+}
+
+tr.is-changing .table__change-column input {
+  padding: 5px;
+  max-width: 100px;
+}
+
+.table__change-submit button {
+  color: white
+}
+
+.table__change-submit button:hover {
+  color: #007bff;
+}
