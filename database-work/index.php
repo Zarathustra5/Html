@@ -65,6 +65,52 @@
   if (!$table) $table = $profession;
 ?>
 
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if ($_POST["form"] == "form-delete"){
+    $sql = "DELETE FROM " . $table["table"] . " WHERE " . $_POST["key"] . " = " . $_POST["id"];
+  }else if ($_POST["form"] == "form-add"){
+    $columns = "";
+    foreach($table["column"] as $key => $el){
+      if ($key == 0){
+        $columns .=  $el;
+        continue;
+      }
+      $columns .=  ", " . $el;
+    }
+    $values = "";
+    foreach($table["column"] as $key => $el){
+      if ($key == 1){
+        $values .= "'" . $_POST[$el] . "'";
+        continue;
+      }else if ($key == 0) continue;
+      $values .=  ", '" . $_POST[$el] . "'";
+    }
+    $sql = "INSERT INTO " . $table["table"] . " (" .
+      $columns .
+    ") VALUES (NULL, " .
+      $values .
+    ")";
+  }else if ($_POST["form"] == "form-change"){
+    $values = "";
+    foreach($table["column"] as $key => $el){
+      if ($key == 1){
+        $values .= $el . " = '" . $_POST[$el] . "'";
+        continue;
+      }else if ($key == 0) continue;
+      $values .=  ", " . $el . " = " . "'" . $_POST[$el] . "'";
+    }
+    $sql = "UPDATE " . $table["table"] . " SET " .
+      $values .
+    " WHERE " .
+      $table["column"][0] . " = " . $_POST[$table["column"][0]];
+  }else if ($_POST["form"] == "form-search"){
+    $searchId = $_POST["search"];
+  }
+  $conn->query($sql);
+}
+?>
+
 <header class="header">
   <div class="container">
     <menu class="header__menu menu">
@@ -77,9 +123,17 @@
 
 <div class="wrapper">
   <div class="container">
+    <section class="search">
+      <form id="form-search" method="post" action="<?php echo $_SERVER['REQUEST_URI'];?>">
+        <input type="search" name="search" placeholder="Поиск по id">
+        <input type="text" name="form" value="form-search">
+        <button type="submit">Найти</button>
+      </form>
+    </section>
     <section class="table">
       <?php
         $sql = "SELECT * FROM " . $table["table"];
+        if ($searchId) $sql .= " WHERE " . $table["column"][0] . " = " . $searchId;
         $result = $conn->query($sql);
       ?>
       <table>
@@ -138,51 +192,6 @@
     <a target="_blank" href="https://github.com/Zarathustra5/Html/tree/master/database-work"><img src="img/github.svg" alt="github"></a>
   </div>
 </footer>
-
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if ($_POST["form"] == "form-delete"){
-    $sql = "DELETE FROM " . $table["table"] . " WHERE " . $_POST["key"] . " = " . $_POST["id"];
-  }else if ($_POST["form"] == "form-add"){
-    $columns = "";
-    foreach($table["column"] as $key => $el){
-      if ($key == 0){
-        $columns .=  $el;
-        continue;
-      }
-      $columns .=  ", " . $el;
-    }
-    $values = "";
-    foreach($table["column"] as $key => $el){
-      if ($key == 1){
-        $values .= "'" . $_POST[$el] . "'";
-        continue;
-      }else if ($key == 0) continue;
-      $values .=  ", '" . $_POST[$el] . "'";
-    }
-    $sql = "INSERT INTO " . $table["table"] . " (" .
-      $columns .
-    ") VALUES (NULL, " .
-      $values .
-    ")";
-  }else if ($_POST["form"] == "form-change"){
-    $values = "";
-    foreach($table["column"] as $key => $el){
-      if ($key == 1){
-        $values .= $el . " = '" . $_POST[$el] . "'";
-        continue;
-      }else if ($key == 0) continue;
-      $values .=  ", " . $el . " = " . "'" . $_POST[$el] . "'";
-    }
-    $sql = "UPDATE " . $table["table"] . " SET " .
-      $values .
-    " WHERE " .
-      $table["column"][0] . " = " . $_POST[$table["column"][0]];
-  }
-  $conn->query($sql);
-  echo "<meta http-equiv='refresh' content='0'>";
-}
-?>
 
 <script src="js/main.js"></script>
 <?php $conn->close();?>

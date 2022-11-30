@@ -98,7 +98,7 @@ body {
 
 table {
   border-spacing: 0px;
-  margin:  70px auto 50px auto;
+  margin:  0 auto;
 }
 
 .table__tools {
@@ -162,6 +162,7 @@ th,td {
   z-index: 2;
 }
 
+.search,
 .add {
   display: flex;
   align-items: center;
@@ -176,7 +177,7 @@ th,td {
 }
 
 .add input {
-  padding: 10px;
+  padding: 8px;
   border-radius: 5px;
   margin: 10px 10px 0 0;
 }
@@ -214,4 +215,14 @@ tr.is-changing .table__change-column input {
 
 .table__change-submit button:hover {
   color: #007bff;
+}
+
+.search input {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.search button {
+  margin-left: 10px;
+  color: white;
 }
