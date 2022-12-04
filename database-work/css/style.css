@@ -46,14 +46,14 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 
 .menu__item {
   background: transparent;
-  border: 1px solid #007bff;
-  color: #007bff;
+  border: 1px solid #212529;
+  color: #212529;
   padding: 10px;
   margin: 20px 10px 0 10px;
 }
 .menu__item.checked,
 .menu__item:hover {
-  background: #007bff;
+  background: #212529;
   color: white;
 }
 
@@ -62,12 +62,17 @@ h1 {
 }
 
 body {
-  background: #212529;
-  color: white;
+  color: #212529;
   display: flex;
   flex-direction: column;
   height: 100%;
+  background: khaki;
+  position: relative;
 }
+canvas{
+  position: absolute;
+}
+
 .container {
   padding: 0 10px;
 }
@@ -78,7 +83,8 @@ body {
 }
 
 .footer {
-  background: #007bff;
+  border-top: 1px solid #212529;
+  background: rgb(169, 169, 169, 0.5);
   color: white;
   display: flex;
   align-items: center;
@@ -145,19 +151,20 @@ input[name="form"] {
   #form-add {
     width: 100%;
   }
-  #form-add div {
+  #form-add .add__left-block {
     max-width: 224px;
   }
 }
 
-#form-add input:first-child {
+#form-add .add__input-block:first-child {
   display: none;
 }
 
 th,td {
-  border: 1px solid white;
+  background: rgb(255, 255, 255, 1);
+  border: 1px solid #212529;
   padding: 10px;
-  background: #212529;
+  color: #212529;
   position: relative;
   z-index: 2;
 }
@@ -173,13 +180,18 @@ th,td {
 .add button {
   width: 35px;
   height: 35px;
-  margin-top: 10px;
+  margin-top: 34px;
 }
 
+.add select,
 .add input {
   padding: 8px;
   border-radius: 5px;
   margin: 10px 10px 0 0;
+  width: 200px;
+}
+.add label {
+  margin-top: 10px;
 }
 
 .add form {
@@ -187,6 +199,18 @@ th,td {
   align-items: center;
   flex-wrap: wrap;
   margin: auto;
+}
+
+.add__left-block {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.add__input-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 tr.is-changing .table__tools,
@@ -204,13 +228,14 @@ tr.is-changing .table__change-column {
   display: table-cell;
 }
 
+tr.is-changing .table__change-column select,
 tr.is-changing .table__change-column input {
   padding: 5px;
   max-width: 100px;
 }
 
 .table__change-submit button {
-  color: white
+  color: #212529;
 }
 
 .table__change-submit button:hover {
@@ -224,5 +249,10 @@ tr.is-changing .table__change-column input {
 
 .search button {
   margin-left: 10px;
-  color: white;
+  color: #212529;
+}
+
+select,
+input {
+  border: 1px solid #212529;
 }

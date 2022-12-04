@@ -4,7 +4,7 @@
 <title>E-corp</title>
 <link rel="stylesheet" href="css/style.css">
 <?php
-  // Init
+  //Подключение базы данных
   $servername = "";
   $username = "";
   $password = "";
@@ -13,11 +13,7 @@
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
-  function getPrimaryKey($mas){
-    foreach($mas as $key => $el){
-      return $key;
-    }
-  }
+  //Массивы с атрибутами таблиц и их переводами
   $profession = [
     "table" => "profession",
     "tableName" => "Должности",
@@ -28,13 +24,13 @@
     "table" => "worker",
     "tableName" => "Сотрудники",
     "column" => ["idWorker", "surname", "name", "birthday", "idProfession", "idProject"],
-    "columnName" => ["Номер сотрудника", "Фамилия", "Имя", "Дата рождения", "Номер должности", "Номер проекта"],
+    "columnName" => ["Номер сотрудника", "Фамилия", "Имя", "Дата рождения", "Должность", "Проект"],
   ];
   $site = [
     "table" => "site",
     "tableName" => "Сайты",
     "column" => ["idSite", "domain", "idServer"],
-    "columnName" => ["Номер сайта", "Домен", "Номер сервера"],
+    "columnName" => ["Номер сайта", "Домен", "Ip сервера"],
   ];
   $server = [
     "table" => "server",
@@ -46,15 +42,16 @@
     "table" => "panel",
     "tableName" => "Панели",
     "column" => ["idPanel", "login", "password", "idSite"],
-    "columnName" => ["Номер панели", "Логин", "Пароль", "Номер сайта"],
+    "columnName" => ["Номер панели", "Логин", "Пароль", "Сайт"],
   ];
   $project = [
     "table" => "project",
     "tableName" => "Проекты",
     "column" => ["idProject", "name", "startDate", "finishDate", "idSite"],
-    "columnName" => ["Номер проекта", "Название", "Дата начала", "Дата окончания", "Номер сайта"],
+    "columnName" => ["Номер проекта","Название", "Дата начала", "Дата окончания", "Сайт"],
   ];
   $tables = [$profession, $worker, $site, $server, $panel, $project];
+  //Выбор таблицы по параметру get из адресной строки
   if (isset($_GET["table"])){
     foreach($tables as $el) {
       if ($_GET["table"] == $el["tableName"]){
@@ -63,22 +60,34 @@
     }
   }
   if (!$table) $table = $profession;
+  function searchTable($column){
+    global $tables;
+    global $table;
+    foreach ($tables as $el){
+      if ($el == $table) continue;
+      if ($el["column"][0] == $column) return $el;
+    }
+  }
+  function getInputType($key){
+    global $table;
+    if (strpos($table["columnName"][$key], "Дата") === false){
+      return "text";
+    }else{
+      return "date";
+    }
+  }
 ?>
 
 <?php
+//Получение форм
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($_POST["form"] == "form-delete"){
-    $sql = "DELETE FROM " . $table["table"] . " WHERE " . $_POST["key"] . " = " . $_POST["id"];
+    //Удаление записи
+    $sql = "DELETE FROM " . $table["table"] . " WHERE " . $table["column"][0] . " = " . $_POST["idDel"];
   }else if ($_POST["form"] == "form-add"){
-    $columns = "";
-    foreach($table["column"] as $key => $el){
-      if ($key == 0){
-        $columns .=  $el;
-        continue;
-      }
-      $columns .=  ", " . $el;
-    }
+    //Добавление записи
     $values = "";
+    //Цикл преобразование введенных пользователем данных в формат с кавычками и запятыми
     foreach($table["column"] as $key => $el){
       if ($key == 1){
         $values .= "'" . $_POST[$el] . "'";
@@ -87,12 +96,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $values .=  ", '" . $_POST[$el] . "'";
     }
     $sql = "INSERT INTO " . $table["table"] . " (" .
-      $columns .
+      implode(", ", $table["column"]) .  //Преобразовывает массив с атрибутами в строку
     ") VALUES (NULL, " .
       $values .
     ")";
-  }else if ($_POST["form"] == "form-change"){
+  }else if ($_POST["form"] == "form-change"){ //Изменение записи
     $values = "";
+    //Цикл преобразование введенных пользователем данных в формат с кавычками и запятыми
     foreach($table["column"] as $key => $el){
       if ($key == 1){
         $values .= $el . " = '" . $_POST[$el] . "'";
@@ -108,8 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $searchId = $_POST["search"];
   }
   $conn->query($sql);
-}
-?>
+}?>
 
 <header class="header">
   <div class="container">
@@ -125,15 +134,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="container">
     <section class="search">
       <form id="form-search" method="post" action="<?php echo $_SERVER['REQUEST_URI'];?>">
-        <input type="search" name="search" placeholder="Поиск по id">
-        <input type="text" name="form" value="form-search">
+        <input type="search" name="search" placeholder="Поиск..."> <input type="text" name="form" value="form-search">
         <button type="submit">Найти</button>
       </form>
     </section>
     <section class="table">
       <?php
+        //Запрос вывода содержимого страницы
         $sql = "SELECT * FROM " . $table["table"];
-        if ($searchId) $sql .= " WHERE " . $table["column"][0] . " = " . $searchId;
+        //Фильтр вывода при поиске
+        if ($searchId){
+          $sql .= " WHERE ";
+          foreach($table["column"] as $key => $el){
+            if ($key == 0){
+              $sql .= $el . " LIKE '%$searchId%'";
+            }else{
+              $sql .= " OR " . $el . " LIKE '%$searchId%'";
+            }
+          }
+        }
         $result = $conn->query($sql);
       ?>
       <table>
@@ -148,11 +167,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <?php while($row = $result->fetch_assoc()) {?>
           <tr>
             <form id="form-change" method="post" action="<?php echo $_SERVER['REQUEST_URI'];?>">
-              <?php foreach($table["column"] as $el) {?>
-                <td class="table__column"><?php echo $row[$el];?></td>
+              <?php foreach($table["column"] as $key => $el) {
+                if (!$relativeTable = searchTable($el)){?>
+                  <td class="table__column"><?php echo $row[$el];?></td>
+                  <td class="table__change-column">
+                    <input type="<?php echo getInputType($key);?>" name="<?php echo $el;?>" value="<?php echo $row[$el];?>">
+                  </td>
+                <?php }else{
+                  //Запрос к базе на вывод данных о связанной таблице для определенной записи
+                  $sql = "SELECT * FROM " . $relativeTable["table"] . " WHERE " . $relativeTable["column"][0] . " = " . $row[$el];
+                  $relativeResult = $conn->query($sql);
+                  $relativeRow = $relativeResult->fetch_assoc();
+                ?>
+                <td class="table__column"><?php echo $relativeRow[$relativeTable["column"][1]];?></td>
+                <?php 
+                  //Запрос к базе на вывод данных о связанной таблице для списка записей
+                  $sql = "SELECT " . $relativeTable["column"][0] . ", " . $relativeTable["column"][1] . " FROM " . $relativeTable["table"];
+                  $relativeResult = $conn->query($sql);
+                ?>
                 <td class="table__change-column">
-                  <input type="text" name="<?php echo $el;?>" value="<?php echo $row[$el];?>">
+                  <select id="" name="<?php echo $el;?>">
+                    <?php while($relativeRow = $relativeResult->fetch_assoc()) {?>
+                      <option value="<?php echo $relativeRow[$relativeTable["column"][0]]; ?>" <?php if ($row[$el] == $relativeRow[$relativeTable["column"][0]]) echo "selected";?>><?php echo $relativeRow[$relativeTable["column"][1]];?></option>
+                    <?php } ?>
+                  </select>
                 </td>
+                <?php } ?>
               <?php } ?>
               <td class="table__change-submit">
                 <input type="text" name="form" value="form-change">
@@ -162,8 +202,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <td class="table__tools">
               <button class="change-button"><img src="img/pencil.svg" alt="change"></button>
               <form id="form-delete" method="post" action="<?php echo $_SERVER['REQUEST_URI'];?>">
-                <input type="text" name="key" value="<?php $key = getPrimaryKey($row); echo $key;?>">
-                <input type="text" name="id" value="<?php echo $row[$key];?>">
+                <input type="text" name="idDel" value="<?php echo $row[$table["column"][0]];?>">
                 <input type="text" name="form" value="form-delete">
                 <button type="submit"><img src="img/delete.svg" alt="delete"></button>
               </form>
@@ -175,10 +214,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </section>
     <section class="add">
       <form id="form-add" method="post" action="<?php echo $_SERVER['REQUEST_URI'];?>">
-        <div>
-        <?php foreach($table["column"] as $key => $el) { ?>
-          <input type="text" placeholder="<?php echo $table["columnName"][$key];?>" name="<?php echo $el;?>">
-        <?php } ?>
+        <div class="add__left-block">
+        <?php foreach($table["column"] as $key => $el) {
+          if (!$relativeTable = searchTable($el)){?>
+            <div class="add__input-block">
+              <label for=""><?php echo $table["columnName"][$key];?></label>
+              <input type="<?php echo getInputType($key);?>" placeholder="<?php echo $table["columnName"][$key];?>" name="<?php echo $el;?>">
+            </div>
+          <?php }else{
+            //Запрос к базе на вывод данных о связанной таблице для списка записей
+            $sql = "SELECT " . $relativeTable["column"][0] . ", " . $relativeTable["column"][1] . " FROM " . $relativeTable["table"];
+            $relativeResult = $conn->query($sql);
+          ?>
+          <div class="add__input-block">
+            <label for=""><?php echo $table["columnName"][$key];?></label>
+            <select id="" name="<?php echo $el;?>">
+              <option value="0" selected>Выберите из списка</option>
+              <?php while($relativeRow = $relativeResult->fetch_assoc()) {?>
+                <option value="<?php echo $relativeRow[$relativeTable["column"][0]]; ?>"><?php echo $relativeRow[$relativeTable["column"][1]]; ?></option>
+              <?php } ?>
+            </select>
+          </div>
+        <?php }} ?>
         </div>
         <input type="text" name="form" value="form-add">
         <button type="submit"><img src="img/add.svg" alt="add"></button>
