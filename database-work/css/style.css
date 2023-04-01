@@ -1,258 +1,226 @@
-/*Обнуление шрифта*/
-*{
-	padding: 0;
-	margin: 0;
-	border: 0;
-}
-*,*:before,*:after{
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-}
-:focus,:active{outline: none;}
-a:focus,a:active{outline: none;}
-nav,footer,header,aside{display: block;}
-html,body{
-	height: 100%;
-	width: 100%;
-	font-size: 100%;
-	line-height: 1;
-	font-size: 14px;
-	-ms-text-size-adjust: 100%;
-	-moz-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
-}
-input,button,textarea{font-family: inherit;}
-input::-ms-clear{display: none;}
-button{cursor: pointer;}
-button::moz-focus-inner {padding: 0;border: 0;}
-a, a:visited{text-decoration: none;}
-a:hover{text-decoration: none;}
-ul-li{list-style: none;}
-img{vertical-align: top;}
-h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
-/*---------------------------------------------------*/
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+body, html{
+  margin:0;
+  height:100%;
+  color:#0F1117;
 }
 
-.header__menu {
-  display: flex;
-  flex-wrap: wrap;
+.page{
+  flex:1 1 auto;
+  position:relative;
+  width:100%;
+  height:100%;
+  overflow: hidden;
 }
 
-.menu__item {
-  background: transparent;
-  border: 1px solid #212529;
-  color: #212529;
-  padding: 10px;
-  margin: 20px 10px 0 10px;
+.window._active{
+  display:block;
 }
-.menu__item.checked,
-.menu__item:hover {
-  background: #212529;
-  color: white;
-}
-
-h1 {
-  color: red;
-}
-
-body {
-  color: #212529;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background: khaki;
-  position: relative;
-}
-canvas{
+/*Окно приложения*/
+.window{
+  display:none;
+  width:500px;
+  height:350px;
+  background-color: white;
   position: absolute;
+  bottom: 30px;
+  margin: auto;
+  border: 1px solid black;
+  box-shadow: 5px 5px 10px 5px black;
 }
-
-.container {
-  padding: 0 10px;
+.window_menu{
+  left: 50px;
 }
-
-.wrapper {
-  flex: 1 0 auto;
-  overflow: auto;
-}
-
-.footer {
-  border-top: 1px solid #212529;
-  background: rgb(169, 169, 169, 0.5);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 0;
-  line-height: 24px;
-  text-align: center;
-}
-
-.footer img{
-  width: 40px;
-}
-
-.table {
-  overflow-x: auto;
-}
-
-table {
-  border-spacing: 0px;
-  margin:  0 auto;
-}
-
-.table__tools {
-  display: flex;
+.main-window{
+  width:100%;
+  height:100%;
   position: relative;
-  top: 0;
-  left: -110px;
-  transition: all .3s ease 0s;
-  z-index: 1;
-}
-@media(max-width:800px){
-  .table__tools {
-    left: 0;
-  }
-}
-
-tr:hover .table__tools {
+  bottom: 0;
   left: 0;
 }
-
-button {
-  background: transparent;
+.main-window .menu{
+  display: flex;
 }
-
-.table__tools img{
-  width: 25px;
-  margin: 0 5px;
+.main-window .menu button{
+  background-color: transparent;
+  border: none;
+  color: white;
   cursor: pointer;
+  margin-left: 10px;
 }
-
-.table__tools img:hover{
-  border: 1px solid transparent;
+.main-window .menu button:hover{
+  color:#0ea4d3;
 }
-
-#form-delete input {
-  display: none;
-}
-
-input[name="form"] {
-  display: none;
-}
-
-@media(max-width: 450px) {
-  #form-add {
-    width: 100%;
-  }
-  #form-add .add__left-block {
-    max-width: 224px;
+@media(max-width:750px){
+  .window{
+    margin:50px 30px;
   }
 }
 
-#form-add .add__input-block:first-child {
-  display: none;
+.window._fullscreen{
+  max-width:100%;
+  height:100%;
+  margin:0;
+  width: 100%;
+  bottom: 0;
+  right:0;
+  left:0;
 }
 
-th,td {
-  background: rgb(255, 255, 255, 1);
-  border: 1px solid #212529;
-  padding: 10px;
-  color: #212529;
-  position: relative;
-  z-index: 2;
+/*Строка инструментов приложения*/
+.window__toolbar{
+  background-color:#0F1117;
+  height:30px;
+  display:flex;
+  justify-content:space-between;
+  cursor: default;
+  color:#0ea4d3;
+}
+nav p{
+  margin:0;
+  padding-left:5px;
+  font-size:15px;
+  line-height:24px;
+}
+.panel{
+  display:flex;
+  align-items:center;
+}
+hr{
+  border:none;
+  cursor:pointer;
+  width:40px;
+  height:100%;
+  position:relative;
+  margin:0;
+}
+.escape:after{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  left:0; right:0;
+  margin:auto;
+  width:7px;
+  height:1px;
+  border-bottom:1px solid white;
+}
+.fullscreen:after{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  left:0; right:0;
+  margin:auto;
+  width:7px;
+  height:5px;
+  border:1px solid white;
+}
+.close:after{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  left:0; right:0;
+  margin:auto;
+  width:10px;
+  height:1px;
+  transform:rotate(-45deg);
+  border-bottom:1px solid white;
+}
+.close:before{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  left:1px; right:0;
+  margin:auto;
+  width:10px;
+  height:1px;
+  transform:rotate(45deg);
+  border-bottom:1px solid white;
+}
+hr:hover{
+  background-color:#0ea4d3;
+}
+.close:hover{
+  background-color:red;
 }
 
-.search,
-.add {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 50px 0;
-}
-
-.add button {
-  width: 35px;
-  height: 35px;
-  margin-top: 34px;
-}
-
-.add select,
-.add input {
-  padding: 8px;
-  border-radius: 5px;
-  margin: 10px 10px 0 0;
-  width: 200px;
-}
-.add label {
-  margin-top: 10px;
-}
-
-.add form {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: auto;
-}
-
-.add__left-block {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.add__input-block {
+/*Контент приложения*/
+.window__body{
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+.main-window .window__body{
+  padding:50px 10px 10px 10px;
+  line-height:26px;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: flex-start;
+  text-align:center;
 }
-
-tr.is-changing .table__tools,
-tr.is-changing .table__column {
-  display: none;
+.buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
-.table__change-submit,
-.table__change-column {
-  display: none;
-}
-
-tr.is-changing .table__change-submit,
-tr.is-changing .table__change-column {
-  display: table-cell;
-}
-
-tr.is-changing .table__change-column select,
-tr.is-changing .table__change-column input {
-  padding: 5px;
-  max-width: 100px;
-}
-
-.table__change-submit button {
-  color: #212529;
-}
-
-.table__change-submit button:hover {
-  color: #007bff;
-}
-
-.search input {
-  padding: 5px;
+.window__body button{
+  font-size: 15px;
+  line-height:28px;
+  background-color:#0F1117;
+  color: white;
   border-radius: 5px;
+  cursor:pointer;
+  border: 2px solid transparent;
+  margin-top: 10px;
+  width: 400px;
 }
-
-.search button {
-  margin-left: 10px;
-  color: #212529;
+button:hover{
+  background-color:transparent;
+  border: 2px solid #0F1117;
+  color:#0F1117;
 }
-
-select,
-input {
-  border: 1px solid #212529;
+.table{
+  border-collapse: collapse;
+  position: relative;
+}
+th,
+td{
+  border: 1px solid black;
+  padding: 5px;
+}
+th{
+  cursor: default;
+}
+tr{
+  cursor: pointer;
+}
+.department{
+  bottom: 50px;
+  left: 30px;
+}
+.project{
+  left: 60px;
+  bottom: 40px;
+}
+.dialogue{
+  max-width:400px;
+  height:200px;
+  text-align:center;
+  bottom: 100px;
+  right: 50px;
+  z-index: 1;
+}
+.dialogue input{
+  width: 300px;
+  height: 30px;
+  border: 2px solid #0F1117;
+  border-radius: 5px;
+  font-size: 14px;
+  color:red;
+  padding: 0 10px;
+}
+.dialogue input::placeholder{
+  color:#0F1117;
+}
+.dialogue button{
+  width: 200px;
 }

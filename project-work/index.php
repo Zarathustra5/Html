@@ -5,10 +5,10 @@
 <link rel="stylesheet" href="css/style.css">
 <?php
   //Подключение базы данных
-  $servername = "";
-  $username = "";
-  $password = "";
-  $dbname = "";
+  $servername = "localhost";
+  $username = "user";
+  $password = "1305";
+  $dbname = "project_work";
   $conn = new mysqli($servername, $username, $password, $dbname);
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -23,14 +23,14 @@
   $worker = [
     "table" => "worker",
     "tableName" => "Сотрудники",
-    "column" => ["idWorker", "surname", "name", "birthday", "idProfession", "idProject"],
-    "columnName" => ["Номер сотрудника", "Фамилия", "Имя", "Дата рождения", "Должность", "Проект"],
+    "column" => ["idWorker", "surname", "name", "birthday", "idProfession", "idTask"],
+    "columnName" => ["Номер сотрудника", "Фамилия", "Имя", "Дата рождения", "Должность", "Задача"],
   ];
   $site = [
-    "table" => "site",
-    "tableName" => "Сайты",
-    "column" => ["idSite", "domain", "idServer"],
-    "columnName" => ["Номер сайта", "Домен", "Ip сервера"],
+    "table" => "project",
+    "tableName" => "Проекты",
+    "column" => ["idProject", "domain", "idServer"],
+    "columnName" => ["Номер проекта", "Домен", "Ip сервера"],
   ];
   $server = [
     "table" => "server",
@@ -41,14 +41,14 @@
   $panel = [
     "table" => "panel",
     "tableName" => "Панели",
-    "column" => ["idPanel", "login", "password", "idSite"],
-    "columnName" => ["Номер панели", "Логин", "Пароль", "Сайт"],
+    "column" => ["idPanel", "login", "password", "idProject"],
+    "columnName" => ["Номер панели", "Логин", "Пароль", "Проект"],
   ];
   $project = [
-    "table" => "project",
-    "tableName" => "Проекты",
-    "column" => ["idProject", "name", "startDate", "finishDate", "idSite"],
-    "columnName" => ["Номер проекта","Название", "Дата начала", "Дата окончания", "Сайт"],
+    "table" => "task",
+    "tableName" => "Задачи",
+    "column" => ["idTask", "name", "startDate", "finishDate", "idProject"],
+    "columnName" => ["Номер задачи","Название", "Дата начала", "Дата окончания", "Проект"],
   ];
   $tables = [$profession, $worker, $site, $server, $panel, $project];
   //Выбор таблицы по параметру get из адресной строки
@@ -126,6 +126,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <?php foreach($tables as $el) {?>
         <a href="?table=<?php echo $el["tableName"];?>" class="menu__item <?php if ($el["tableName"] == $_GET["table"]) echo "checked";?>"><?php echo $el["tableName"];?></a>
       <?php } ?>
+      <div class="notification">
+        <button class="notification-button"><img src="img/notification.svg" alt="notifications"></button>
+        <ul class="notification__body">
+          <li>Пока уведомлений нет</li>
+        </ul>
+      </div>
     </menu>
   </div>
 </header>
@@ -135,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <section class="search">
       <form id="form-search" method="post" action="<?php echo $_SERVER['REQUEST_URI'];?>">
         <input type="search" name="search" placeholder="Поиск..."> <input type="text" name="form" value="form-search">
-        <button type="submit">Найти</button>
+        <button type="submit"><img class="search-button" src="img/search.svg" alt="найти"></button>
       </form>
     </section>
     <section class="table">
