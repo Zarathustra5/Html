@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Информационная безопасность</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="wrapper">
+    <nav class="menu">
+      <a class="menu__link" href="index.html">Генератор паролей</a>
+      <a class="menu__link" href="vizhinera.html">Шифр Вижинера</a>
+      <a class="menu__link" href="rights/index.html">Права</a>
+    </nav>
+    <h1 class="title">Двойная перестановка</h1>
+    <form class="perestanova-form" id="perestanova-form" action="">
+      <div class="perestanova-form__row">
+        <label for="symbol-length">Введите текст: </label>
+        <input class="perestanova-form__input export-field" name="text" id="symbol-length" type="text" required>
+      </div>
+      <div class="perestanova-form__row">
+        <label for="symbol-length">Введите первую последовательность: </label>
+        <input class="perestanova-form__input export-field" name="order1" id="symbol-length" type="number" required>
+      </div>
+      <div class="perestanova-form__row">
+        <label for="symbol-length">Введите вторую последовательность: </label>
+        <input class="perestanova-form__input export-field" name="order2" id="symbol-length" type="number" required>
+      </div>
+      <div class="perestanova-form__row">
+        <input class="submit-form btn" type="submit" value="Сгенерировать">
+      </div>
+    </form>
+    <div class="result-container">
+      <div class="perestanova-tables ">
+        <table id="source-table"></table>
+        <table id="mod-table"></table>
+        <table id="res-table"></table>
+      </div>
+      <div id="res-total"></div>
+      <input type="hidden" id="res-total-field" class="export-field">
+      <button class="btn" id="export-btn">
+        Сохранить шифр
+        <svg><use href="#export-file-icon"></use></svg>
+      </button>
+    </div>
+    <h2 style="display: none;">Пароль надежен, если он
+      <span
+         class="txt-rotate"
+         data-period="2000"
+         data-rotate='[ "не запоминается.", "не короткий.", "никому не известен.", "сгенерирован тут." ]'></span>
+    </h2>
+  </div>
+  <menu class="toolbar">
+    <label class="toolbar__btn btn-reverse" for="import-btn">
+      Импорт из файла
+      <svg><use href="#import-file-icon"></use></svg>
+    </label>
+    <input id="import-btn" type="file" style="display: none;">
+  </menu>
+  <svg style="display: none;">
+    <symbol id="export-file-icon" width="100%" height="100%" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9.5 11V17L11.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9.5 17L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22.5 10V15C22.5 20 20.5 22 15.5 22H9.5C4.5 22 2.5 20 2.5 15V9C2.5 4 4.5 2 9.5 2H14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22.5 10H18.5C15.5 10 14.5 9 14.5 6V2L22.5 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="import-file-icon" width="100%" height="100%" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g id="vuesax/linear/document-upload">
+      <g id="document-upload">
+      <path id="Vector" d="M9.5 17V11L7.5 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="Vector_2" d="M9.5 11L11.5 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="Vector_3" d="M22.5 10V15C22.5 20 20.5 22 15.5 22H9.5C4.5 22 2.5 20 2.5 15V9C2.5 4 4.5 2 9.5 2H14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="Vector_4" d="M22.5 10H18.5C15.5 10 14.5 9 14.5 6V2L22.5 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      </g>
+    </symbol>
+  </svg>
+  <script src="js/snap.svg-min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/perestanova.js"></script>
+</body>
+</html>
