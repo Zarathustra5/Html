@@ -1,0 +1,30 @@
+.footer{
+  background:rgb(148, 0, 211, 0.7);
+  .container{
+    text-align:center;
+    padding:30px;
+    font-size:15px;
+    line-height:20px;
+    font-weight:400;
+    span{
+      font-weight:600;
+      padding-right:8px;
+    }
+  }
+  .telegram{
+    display:inline-flex;
+    align-items:center;
+    svg{
+      width:30px;
+      height:30px;
+      fill:#37aee2;
+      border-radius:50%;
+      &:hover{
+        fill:black;
+      }
+    }
+  }
+  .email{
+    margin-top:15px;
+  }
+}

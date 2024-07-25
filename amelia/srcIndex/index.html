@@ -1,0 +1,90 @@
+<!--Сообщаем браузеру как стоит обрабатывать эту страницу-->
+<!DOCTYPE html>
+<!--Оболочка документа, указываем язык содержиого-->
+<html lang="ru">
+<!--Заголовок страницы, контейнер для других важных данных (не отображается)-->
+    <head>
+    	<!--Заголовок страницы в браузере-->
+    	<title>Amelia</title>
+    	<!--Кодировка страницы-->
+      <meta charset="UTF-8"> 
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+      <meta name="format-detection" content="telephone=0">
+      <link rel="stylesheet" href="css/style.min.css">
+      <link rel="stylesheet" href="swiper/swiper-bundle.min.css" />
+      <link rel="shortcut icon" href="img/icon.png">
+    </head>
+    <!--Отображаем тело страницы-->
+    <body>
+      <div class='wrapper'>
+        <!--Шапка страницы-->
+        @@include('_header.html')
+        <!--Главный контент страницы-->
+        <main class="page">
+          <div class="container">
+            <section class="product">
+              <figure class="product__image">
+                <img src="img/body/img1.png" alt="">
+              </figure>
+              <div class="product__description">
+                <h2 class="product__description-capture">Ангелика</h2>
+                <p class="product__description-paragraph">Ангелика – это удивительное растение, которое невероятно быстро растет благодаря способности находить воду. L'OCCITANE посвятила этому потрясающему растению целую линию средств для лица, которые интенсивно увлажняют и наполняют кожу энергией. В нашей коллекции средств для лица использованы эфирное масло и цветочная вода ангелики, помогающие восстановить естественную красоту кожи.</p>
+                <a class="product__description-link" href="#">полное описание</a>
+              </div>
+            </section>
+            <section class="product">
+              <figure class="product__image">
+                <img src="img/body/img2.png" alt="">
+              </figure>
+              <div class="product__description">
+                <h2 class="product__description-capture">Ангелика</h2>
+                <p class="product__description-paragraph">Ангелика – это удивительное растение, которое невероятно быстро растет благодаря способности находить воду. L'OCCITANE посвятила этому потрясающему растению целую линию средств для лица, которые интенсивно увлажняют и наполняют кожу энергией. В нашей коллекции средств для лица использованы эфирное масло и цветочная вода ангелики, помогающие восстановить естественную красоту кожи.</p>
+                <a class="product__description-link" href="#">полное описание</a>
+              </div>
+            </section>
+            <section class="product">
+              <figure class="product__image">
+                <img src="img/body/img3.png" alt="">
+              </figure>
+              <div class="product__description">
+                <h2 class="product__description-capture">Ангелика</h2>
+                <p class="product__description-paragraph">Ангелика – это удивительное растение, которое невероятно быстро растет благодаря способности находить воду. L'OCCITANE посвятила этому потрясающему растению целую линию средств для лица, которые интенсивно увлажняют и наполняют кожу энергией. В нашей коллекции средств для лица использованы эфирное масло и цветочная вода ангелики, помогающие восстановить естественную красоту кожи.</p>
+                <a class="product__description-link" href="#">полное описание</a>
+              </div>
+            </section>
+            <section class="product">
+              <figure class="product__image">
+                <img src="img/body/img4.png" alt="">
+              </figure>
+              <div class="product__description">
+                <h2 class="product__description-capture">Ангелика</h2>
+                <p class="product__description-paragraph">Ангелика – это удивительное растение, которое невероятно быстро растет благодаря способности находить воду. L'OCCITANE посвятила этому потрясающему растению целую линию средств для лица, которые интенсивно увлажняют и наполняют кожу энергией. В нашей коллекции средств для лица использованы эфирное масло и цветочная вода ангелики, помогающие восстановить естественную красоту кожи.</p>
+                <a class="product__description-link" href="#">полное описание</a>
+              </div>
+            </section>
+            <section class="pagination">
+              <a class="pagination__arrow pagination__arrow-prev" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg">
+                   <path d="M 20 10 L 10 10 L 10 7 L 5 11 L 10 15 L 10 12 L 20 12 Z" fill="white" stroke="white"/>
+                </svg>
+              </a>
+              <a class="pagination__page" href="#">1</a>
+              <a class="pagination__page" href="#">2</a>
+              <a class="pagination__page" href="#">3</a>
+              <a class="pagination__page" href="#">...</a>
+              <a class="pagination__page" href="#">44</a>
+              <a class="pagination__arrow pagination__arrow-next" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg">
+                   <path d="M 5 10 L 15 10 L 15 7 L 20 11 L 15 15 L 15 12 L 5 12 Z" fill="white" stroke="white"/>
+                </svg>
+              </a>
+            </section>
+          </div>
+        </main>
+        <!--Подвал страницы-->
+        @@include('_footer.html')
+      </div>
+      <script src="swiper/swiper-bundle.min.js"></script>
+      <script src='js/script.min.js'></script>
+    </body>
+</html>

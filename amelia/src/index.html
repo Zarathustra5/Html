@@ -1,0 +1,157 @@
+<!--Сообщаем браузеру как стоит обрабатывать эту страницу-->
+<!DOCTYPE html>
+<!--Оболочка документа, указываем язык содержиого-->
+<html lang="ru">
+<!--Заголовок страницы, контейнер для других важных данных (не отображается)-->
+    <head>
+    	<!--Заголовок страницы в браузере-->
+    	<title>Amelia</title>
+    	<!--Кодировка страницы-->
+      <meta charset="UTF-8"> 
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+      <meta name="format-detection" content="telephone=0">
+      <link rel="stylesheet" href="css/style.min.css">
+      <link rel="stylesheet" href="swiper/swiper-bundle.min.css" />
+      <link rel="shortcut icon" href="img/icon.png">
+    </head>
+    <!--Отображаем тело страницы-->
+    <body>
+      <div class='wrapper'>
+        <!--Шапка страницы-->
+        @@include('_header.html')
+        <!--Главный контент страницы-->
+        <main class="page">
+          <div class="container">
+            <div class="page__label">
+              <span>Товары в корзине:</span>
+              <button>Готовые к заказу</button>
+            </div>
+            <form class="form" action="#">
+              <div class="table-wrapper">
+                <table class="page__table" id="basket">
+                  <thead>
+                    <tr>
+                      <td></td>
+                      <td>Наименование товара</td>
+                      <td>cкидка</td>
+                      <td>Цена, руб</td>
+                      <td>Количество</td>
+                      <td>Сумма, руб<td>
+                  <tbody>
+                    <tr>
+                      <td><img src="img/body/cream.png" alt="крем для лица"></td>
+                      <td class="tname">Очищающий крем <br>для лица dr.haushka <p>Объем 10 мл.</p></td>
+                      <td class="tdiscount">
+                        <p>5%</p>
+                      </td>
+                      <td class="tprice">
+                        <p>228</p> 
+                        <del>240</del>
+                      </td>
+                      <td class="tchange-amount">
+                        <div>
+                          <span class="amount-minus">-</span>
+                          <input value="1" type="tel" name="amount1">
+                          <span class="amount-plus">+</span>
+                        </div>
+                      </td>
+                      <td class="tsum"><b>228</b></td>
+                      <td class="tbin">
+                        <svg>
+                          <use xlink:href="img/icons/icons.svg#bin"></use>
+                        </svg>
+                        <hr>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><img src="img/body/cream.png" alt="крем для лица"></td>
+                      <td class="tname">Очищающий крем <br>для лица dr.haushka <p>Объем 10 мл.</p></td>
+                      <td class="tdiscount">
+                        <p>5%</p>
+                      </td>
+                      <td class="tprice">
+                        <p>228</p> 
+                        <del>240</del>
+                      </td>
+                      <td class="tchange-amount">
+                        <div>
+                          <span class="amount-minus">-</span>
+                          <input value="1" type="tel" name="amount1">
+                          <span class="amount-plus">+</span>
+                        </div>
+                      </td>
+                      <td class="tsum"><b>228</b></td>
+                      <td class="tbin">
+                        <svg>
+                          <use xlink:href="img/icons/icons.svg#bin"></use>
+                        </svg>
+                        <hr>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><img src="img/body/cream.png" alt="крем для лица"></td>
+                      <td class="tname">Очищающий крем <br>для лица dr.haushka <p>Объем 10 мл.</p></td>
+                      <td class="tdiscount">
+                        <p>5%</p>
+                      </td>
+                      <td class="tprice">
+                        <p>228</p> 
+                        <del>240</del>
+                      </td>
+                      <td class="tchange-amount">
+                        <div>
+                          <span class="amount-minus">-</span>
+                          <input value="1" type="tel" name="amount1">
+                          <span class="amount-plus">+</span>
+                        </div>
+                      </td>
+                      <td class="tsum"><b>228</b></td>
+                      <td class="tbin">
+                        <svg>
+                          <use xlink:href="img/icons/icons.svg#bin"></use>
+                        </svg>
+                        <hr>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><img src="img/body/cream.png" alt="крем для лица"></td>
+                      <td class="tname">Очищающий крем <br>для лица dr.haushka <p>Объем 10 мл.</p></td>
+                      <td class="tdiscount">
+                        <p>5%</p>
+                      </td>
+                      <td class="tprice">
+                        <p>228</p> 
+                        <del>240</del>
+                      </td>
+                      <td class="tchange-amount">
+                        <div>
+                          <span class="amount-minus">-</span>
+                          <input value="1" type="tel" name="amount1">
+                          <span class="amount-plus">+</span>
+                        </div>
+                      </td>
+                      <td class="tsum"><b>228</b></td>
+                      <td class="tbin">
+                        <svg>
+                          <use xlink:href="img/icons/icons.svg#bin"></use>
+                        </svg>
+                        <hr>
+                      </td>
+                    </tr>
+                </table>
+              </div>
+              <div class="page__sum sum">
+                <p class="sum__products"><span id="sum-amount">4</span> ТОВАРА НА <span id="sum-money">4587</span><span>P</span></p>
+                <p class="sum__discount">СКИДКА <span id="sum-discount">48</span><span>P</span></p>
+              </div>
+              <button class="page__submit" type="submit">оформить заказ</button>
+            </form>
+          </div>
+        </main>
+        <!--Подвал страницы-->
+        @@include('_footer.html')
+      </div>
+      <script src="swiper/swiper-bundle.min.js"></script>
+      <script src='js/script.min.js'></script>
+    </body>
+</html>

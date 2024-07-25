@@ -1,0 +1,11 @@
+{
+  "name": "PWA app",
+  "short_name": "pwa",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#FF3218",
+  "orientation": "portrait",
+  "icons": {
+    "512": "aa.png"
+  },
+}

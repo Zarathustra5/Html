@@ -1,0 +1,108 @@
+/*Подключение шрифтов-----------------------------------------*/
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face { 
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+@import "fonts.scss";
+@import "nullstyle.scss";
+
+/*Брейк поинты-----------------------------------------*/
+@media(max-width:1260px){
+  .container{
+    max-width:1030px;
+  }
+}
+
+@media(max-width:1052px){
+  .container{
+    max-width:750px;
+  }
+}
+
+@media(max-width:767px){
+  .container{
+    max-width:590px;
+  }
+}
+
+/*Фоновая картинка---------------------------------------*/
+.ibg{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width:100%;
+  height:100%;
+  z-index:-100;
+  img{
+    display:none;
+  }
+}
+
+/*Контейнер-----------------------------------------*/
+.container{
+  max-width:1260px;
+  padding:0 30px;
+  margin:0 auto;
+}
+
+/*Обертка-----------------------------------------*/
+.wrapper{
+  min-height:100%;
+  overflow:hidden;  
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  font-family:OpenSans;
+  background-color:#46394B;
+}
+
+/*Шапка страницы-----------------------------------------*/
+@import "header.scss";
+
+/*Главный контент страницы-----------------------------------------*/
+.page{
+  margin-top:70px;
+  flex:1 1 auto;
+  text-align:center;
+  .title{
+    font-size:30px;
+    font-weight:500;
+  }
+  .subtitle{
+    padding-top:20px;
+  }
+  .menu{
+    background:linear-gradient(90deg, #46394B, white);
+    max-width:500px;
+    margin:50px auto 0 auto;
+    border-radius:10px;
+    p{
+      padding:15px 0;
+    }
+    a{
+      color:black;
+      display:block;
+      padding:15px 0;
+      font-size:18px;
+      font-weight:400;
+      &:first-child{
+        margin-top:0;
+      }
+      &:hover{
+        background-color:#46394B;
+        color:white;
+      }
+    }
+  }
+}
+
+/*Подвал страницы-----------------------------------------*/
+@import "footer.scss";

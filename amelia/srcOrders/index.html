@@ -1,0 +1,68 @@
+<!--Сообщаем браузеру как стоит обрабатывать эту страницу-->
+<!DOCTYPE html>
+<!--Оболочка документа, указываем язык содержиого-->
+<html lang="ru">
+<!--Заголовок страницы, контейнер для других важных данных (не отображается)-->
+    <head>
+    	<!--Заголовок страницы в браузере-->
+    	<title>Amelia</title>
+    	<!--Кодировка страницы-->
+      <meta charset="UTF-8"> 
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+      <meta name="format-detection" content="telephone=0">
+      <link rel="stylesheet" href="css/style.min.css">
+      <link rel="stylesheet" href="swiper/swiper-bundle.min.css" />
+      <link rel="shortcut icon" href="img/icon.png">
+    </head>
+    <!--Отображаем тело страницы-->
+    <body>
+      <div class='wrapper'>
+        <!--Шапка страницы-->
+        @@include('_header.html')
+        <!--Главный контент страницы-->
+        <main class="page">
+          <div class="container">
+            <h1 class="page__title">МОИ ЗАКАЗЫ</h1>
+            <table class="page__table" id="orders">
+              <thead>
+              <tr><td>НОМЕР<td>ДАТА<td>СТАТУС<td>СУММА
+              <tbody>
+              <tr class="_active"><td>9<td>16.03.2015<td>НОВЫЙ<td>728Р
+                <td>
+                  <a href="#">
+                    <svg>
+                      <use xlink:href="img/icons/icons.svg#reload"></use>
+                    </svg>
+                  </a>
+                <td>
+                  <a href="#">
+                    <svg class="close">
+                      <use xlink:href="img/icons/icons.svg#close"></use>
+                    </svg>
+                  </a>
+              <tr><td>8<td>10.02.2015<td>ИСПОЛНЕН<td>928Р
+                <td>
+                  <a href="#">
+                    <svg>
+                      <use xlink:href="img/icons/icons.svg#reload"></use>
+                    </svg>
+                  </a>
+                <td>
+              <tr><td>7<td>10.02.2015<td>ИСПОЛНЕН<td>928Р
+                <td>
+                  <a href="#">
+                    <svg>
+                      <use xlink:href="img/icons/icons.svg#reload"></use>
+                    </svg>
+                  </a>
+                <td>
+            </table>
+          </div>
+        </main>
+        <!--Подвал страницы-->
+        @@include('_footer.html')
+      </div>
+      <script src="swiper/swiper-bundle.min.js"></script>
+      <script src='js/script.min.js'></script>
+    </body>
+</html>

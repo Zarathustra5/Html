@@ -1,0 +1,275 @@
+/*Подключение шрифтов-----------------------------------------*/
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face { 
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+@import "fonts.scss";
+@import "nullstyle.scss";
+
+/*Брейк поинты-----------------------------------------*/
+@media(max-width:1200px){
+  .container{
+    max-width:1030px;
+  }
+}
+
+@media(max-width:1052px){
+  .container{
+    max-width:810px;
+  }
+}
+
+@media(max-width:827px){
+  .container{
+    max-width:none;
+  }
+}
+
+/*Заголовки-----------------------------------------*/
+h2{
+  font-size: 80px;
+  line-height: 85px;
+  @media(max-width:767px){
+    font-size: 12vw;
+  }
+}
+
+/*Контейнер-----------------------------------------*/
+.container{
+  padding:0 30px;
+  margin:0 auto;
+  max-width:1240px;
+}
+
+/*Обертка-----------------------------------------*/
+.wrapper{
+  min-height:100%;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background-color:#0B0A0D;
+  color:#0B0A0D;
+}
+
+/*Шапка страницы-----------------------------------------*/ 
+@import "header.scss";
+/*Главный контент страницы-----------------------------------------*/
+.page{
+  overflow:hidden;
+  flex:1 1 auto;
+  margin-top:65px;
+  @media(max-width:767px){
+    margin-top:43px;
+  }
+}
+
+/*Главный экран со слайдами----------------------------------------*/
+.main-screen{
+  position:relative;
+  .main-swiper{
+    padding-bottom:95px;
+    @media(max-width:1052px){
+      overflow:hidden;
+    }
+  }
+  .swiper{
+    &-slide{
+      overflow:hidden;
+      position:relative;
+      border-radius:10px;
+      height:650px;
+      @media(max-width:767px){
+        height:450px;
+      }
+      img{
+        width:100%;
+        height:100%;
+        position:absolute;
+        top:0;
+        left:0;
+        object-fit:cover;
+      }
+      figcaption{
+        color:white;
+        font-size: 80px;
+        line-height: 85px;
+        position:absolute;
+        bottom:160px;
+        left:50px;
+        @media(max-width:767px){
+          left:20px;
+          font-size: 12vw;
+        }
+      }
+    }
+    &-button-prev,
+    &-button-next{
+      &:after{
+        content:"";
+      }
+      svg{
+        width:100%;
+        height:100%;
+      }
+      top:94%;
+      margin:auto;
+      width:100px;
+      height:40px;
+    }
+    &-button-prev{
+      left:0;right:115px;
+    }
+    &-button-next{
+      left:115px;right:0;
+    }
+  }
+}
+
+/*Вопросы-------------------------------------------*/
+.faq{
+  color:white;
+  margin-top:150px;
+  .container{
+    display:flex;
+    @media(max-width:767px){
+      flex-direction:column;
+    }
+  }
+  &__content{
+    padding-left:98px;
+    width:100%;
+    @media(max-width:767px){
+      padding:45px 0 0 0;
+    }
+    .question{
+      &._active{
+        border-top: 1px solid rgba(255, 255, 255);
+      }
+      &:last-child{
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding:30px 0;
+      &__caption{
+        list-style-type:none;
+        font-size: 24px;
+        line-height: 35px;
+        cursor:pointer;
+      }
+      &__answer{
+        font-size: 16px;
+        line-height: 24px;
+        padding-top:30px;
+      }
+    }
+  }
+}
+/*Новости-----------------------------------------*/
+.news{
+  margin-top:130px;
+  color:white;
+  .news-swiper{
+    margin-top:30px;
+  }
+  .swiper{
+    &-slide{
+      .image{
+        height:264px;
+        position:relative;
+        img{
+          width:100%;
+          height:100%;
+          position:absolute;
+          top:0;
+          left:0;
+          object-fit:cover;
+        }
+      }
+      &:hover{
+        .text-caption{
+          text-decoration:underline;
+        }
+      }
+      .text{
+        font-size: 14px;
+        line-height: 21px;
+        color:white;
+        &-caption{
+          padding-top:30px;
+        }
+        &-paragraph{
+          padding-top:10px;
+        }
+      }
+    }
+  }
+}
+
+/*Подпишись-----------------------------------------*/
+.subscribe{
+  margin-top:110px;
+  background-color:white;
+  padding:50px 0;
+  &__subtitle{
+    padding-top:30px;
+    font-size: 16px;
+    line-height: 20px;
+    max-width:400px;
+  }
+  &__form{
+    .inputs{
+      margin-top:20px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+      .input-group{
+        @media(max-width:367px){
+          width:100%;
+        }
+        input{
+          &:first-child{
+            margin-top:0;
+          }
+          &:focus{
+            border: 1px solid #0B0A0D;
+          }
+          margin-top:20px;
+          padding:0 20px;
+          display:block;
+          width:400px;
+          height:50px;
+          border: 1px solid rgba(0, 0, 0, 0.4);
+          border-radius: 10px;
+          box-sizing: border-box;
+          @media(max-width:1052px){
+            width:300px;
+          }
+          @media(max-width:367px){
+            width:100%;
+          }
+        }
+      }
+    }
+    .submit{
+      width: 141px;
+      height: 50px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      background-color:transparent;
+      margin-top:20px;
+      &:hover{
+        border: 1px solid #0B0A0D;
+      }
+    }
+  }
+}
+
+/*Подвал страницы-----------------------------------------*/
+@import "footer.scss";

@@ -1,0 +1,580 @@
+@import 'nullstyle.scss';
+
+
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face { 
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+@import "fonts.scss";
+
+html,body{}
+
+/*Брейк поинты-----------------------------------------*/
+@media(max-width:1244px){
+  .fat-container{
+    max-width:1030px;
+  }
+  .slim-container{
+    max-width:894px;
+  }
+}
+
+@media(max-width:827px){
+  .fat-container{
+    max-width:none;
+  }
+  .slim-container{
+    max-width:none;
+  }
+}
+
+body._locked{
+  overflow:hidden;
+}
+
+//Стрелочки-------------------------------
+.pointer{
+  width:36px;
+  height:3px;
+  background-color:#C4C4C4;
+  position:relative;
+  &:before{
+    content:"";
+    width:17px;
+    height:3px;
+    background-color:#C4C4C4;
+    position:absolute;
+    top:-5px;
+    border-radius:10px;
+    transform:rotate(-45deg);
+  }
+  &:after{
+    content:"";
+    width:17px;
+    height:3px;
+    background-color:#C4C4C4;
+    position:absolute;
+    bottom:-5px;
+    border-radius:10px;
+    transform:rotate(45deg);
+  }
+}
+
+//Обертка-------------------------------
+.wrapper{
+  font-family:Rubik;
+  min-height:100%;
+  overflow:hidden;  
+  color:#4E5983;
+  font-size:14px;
+  max-width:1468px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+//Максимальные контейнеры-------------------------------
+.fat-container{
+  max-width:1244px;
+  margin:auto;
+  padding:0 30px;
+}
+
+//Минимальные контейнеры------------------------------
+.slim-container{
+  max-width:1008px;
+  margin:auto;
+  padding:0 30px;
+}
+
+//Кнопки-------------------------------
+.button{
+  width:157px;
+  height:59px;
+  border-radius:9px;
+  background:#A17FFF;
+  &:hover{
+    background:#E5E5E5;
+    color:#160647;
+  }
+}
+
+//Подзаголовки и параграфы-------------------------------
+h2{
+  font-size:35px;
+  font-weight:500;
+  color:#160647;
+  line-height:50px;
+  @media(max-width:1244px){
+    font-size:30px;
+    line-height:45px;
+  }
+  @media(max-width:420px){
+    font-size:26px;
+    line-height:40px;
+  }
+}
+p{
+  line-height:30px;
+
+}
+//Шапка страницы-----------------------------------------------------
+@import "header.scss";
+
+//Основной контент страницы--------------------------------------------
+.main{
+  flex:1 1 auto;
+  transition:all 1s ease 0s;
+  &._active{
+    transform:rotate(5deg);
+    transition:all 1s ease 0s;
+  }
+}
+
+//Мультивалютный обменный сервис--------------------------------------------
+.hello{
+  //Все, что находится вне центрального блока
+  background: linear-gradient(to top left, #A07EFE, #562EC2);
+  position:relative;
+  text-align:center;
+  padding:124px 0;
+  overflow:hidden;
+  &__bg{
+    position:absolute;
+    &_left{
+      left:0;
+    }
+    &_right{
+      right:0;
+    }
+  }
+  h1{
+    font-weight:700;
+    color:white;
+    font-size:60px;
+    position:relative;
+    z-index:2;
+    @media(max-width:620px){
+      font-size:50px;
+    }
+    @media(max-width:520px){
+      font-size:40px;
+    }
+    @media(max-width:420px){
+      font-size:28px;
+    }
+  }
+  &__description{
+    padding-top:36px;
+    font-weight:700;
+    color:white;
+    font-size:19px;
+    position:relative;
+    z-index:2;
+  }
+  //Все, что находится внутри центрального блока
+  &__form{
+    margin-top:55px;
+    padding:76px 81px;
+    background-color:white;
+    max-width:1109px;
+    max-height:283px;
+    position:relative;
+    z-index:2;
+    border-radius:26px;
+    text-align:left;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-around;
+    @media(max-width:1244px){
+      flex-wrap:wrap;
+      max-height:100%;
+    }
+    @media(max-width:827px){
+      flex-direction:column;
+      align-items:center;
+      padding:50px;
+      max-width:500px;
+      margin:0 auto;
+    }
+    h4{
+      font-size:18px;
+      font-weight:500;
+      display:inline-block;
+      padding-right:10px;
+    }
+    .transport{
+      cursor:pointer;
+      margin:0 20px;
+      @media(max-width:827px){
+        margin:50px 0 0 0;
+      }
+    }
+    .exchange{
+      position:relative;
+      p{
+        margin-top:38px;
+      }
+    }
+    .currency{
+      display:inline-flex;
+      align-items:center;
+      margin-top:22px;
+      position:relative;
+      &:after{
+        content:'';
+        position:absolute;
+        bottom:-10px;
+        left:0;
+        border-bottom:2px solid black;
+        width:100%;
+        opacity:0.3;
+      }
+      &__input{
+        position:relative;
+        &:before{
+          content:'';
+          position:absolute;
+          bottom:0;
+          right:0;
+          border-right:1px solid black;
+          height:100%;
+          opacity:0.5;
+        }
+        input{
+          font-size:18px;
+          width:175px;
+          @media(max-width:420px){
+            width:25vw;
+          }
+        }
+      }
+      &__choose{
+        display:flex;
+        align-items:center;
+        cursor:pointer;
+        picture{
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          height:24px;
+          width:44px;
+        }
+        &:after{
+          content:'';
+        }
+        &:hover{
+          opacity:0.7;
+        }
+      }
+      &__value{
+        display:flex;
+        align-items:center;
+      }
+      &__animation{
+        border-right:7px solid transparent;
+        border-left:7px solid transparent;
+        border-top:10px solid #4E5983;
+        margin-left:5px;
+        display:inline-block;
+      }
+      &__list{
+        list-style:none;
+        position:absolute;
+        z-index:1000;
+        bottom:-160px;
+        right:0;
+        cursor:pointer;
+        display:none;
+        max-height:150px;
+        overflow:auto;
+        picture{
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          height:24px;
+          width:44px;
+        }
+        li{
+          border:1px solid black;
+        background:white;
+        opacity:0.7;
+          padding:5px 17px 5px 0px;
+          display:flex;
+          align-items:center;
+        }
+      }
+    }
+    .get{
+      @media(max-width:827px){
+        margin:50px 0 0 0;
+      }
+      &__title{
+        position:relative;
+        span{
+          position:absolute;
+          right:-25%;
+          top:10%;
+          @media(max-width:470px){
+            position:relative;
+            right:0;
+            top:0;
+            display:block;
+            margin-top:5px;
+          }
+        }
+      }
+    }
+    button{
+      color:white;
+      background: linear-gradient(to top left, #A07EFE, #562EC2);
+      margin-left:50px;
+      @media(max-width:1244px){
+        margin:50px auto 0 auto;
+      }
+    }
+  }
+}
+
+//Преимущества компании-----------------------------------------------------
+.benefits{
+  margin-top:137px;
+  &__container{
+    display:flex;
+    justify-content:space-around;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    padding:0 20px;
+  }
+  .benefit{
+    width:280px;
+    padding:10px;
+  }
+  img{
+    max-width:179px;
+    height:161px;
+  }
+  h4{
+    font-size:22px;
+    font-weight:500;
+
+  }
+  p{
+    padding-top:20px;
+    font-size:18px;
+  }
+}
+
+//История компании-----------------------------------------------------
+.history{
+  margin-top:85px;
+  &__container{
+
+  }
+  &__block{
+    border-radius:26px;
+    display:flex;
+    align-items:center;
+    border:3px solid #E5E5E5;
+    padding:108px 14px 82px 157px;
+    @media(max-width:1000px){
+      flex-direction:column;
+      max-width:500px;
+      margin:0 auto;
+      padding:50px;
+    }
+  }
+  &__text{
+    max-width:320px;
+    p{
+      font-size:18px;
+      margin-top:44px;
+    }
+  }
+  img{
+    max-width:656px;
+    @media(max-width:1244px){
+      max-width:442px;
+    }
+    @media(max-width:420px){
+      max-width:302px;
+      margin-top:30px;
+    }
+  }
+}
+
+//Резерв валюты-----------------------------------------------------
+.reserve{
+  margin-top:142px;
+  &__container{
+    padding:0;
+  }
+  h2{
+    text-align:center;
+  }
+  &__wallets{
+    display:flex;
+    flex-wrap:wrap;
+    margin-top:8px;
+    @media(max-width:749px){
+      justify-content:center;
+    }
+    .wallet{
+      display:flex;
+      align-items:center;
+      margin:83px 30px 0 30px;
+      width:190px;
+      &:hover{
+        opacity:0.8;
+        color:#A17FFF;
+      }
+      &__text{
+        padding-left:33px;
+        p{
+          padding-top:12px;
+          font-size:20px;
+          color:#160647;
+        }
+      }
+    }
+  }
+}
+
+//Что клиенты говорят о нас-------------------------------------------------
+.about-us{
+  margin-top:167px;
+  position:relative;
+  z-index:5;
+  .swiper3{
+    height:350px;
+    overflow:hidden;
+    font-size:18px;
+    .swiper-slide{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      p{
+        padding-top:139px;
+        flex:1 1 auto;
+        @media(max-width:414px){
+          padding-top:10px;
+        }
+      }
+      div{
+        .name{
+          color:#160647;
+          font-size:20px;
+          font-weight:500;
+          padding-right:41px;
+        }
+        .date{
+          display:inline-block;
+          padding-top:5px;
+          white-space: nowrap;
+        }
+      }
+    }
+    @media(max-width:414px){
+      height:100%;
+      div{
+        margin-top:40px;
+      }
+    }
+  }
+  .pointers{
+    text-align:right;
+    padding-top:50px;
+    .swiper-button{
+      cursor:pointer;
+      height:20px;
+    }
+    .swiper-button_next{
+      display:inline-flex;
+      align-items:center;
+      .pointer{
+        background-color:#A17FFF;
+        width:71px;
+        &:before{
+          background-color:#A17FFF;
+          transform:rotate(45deg);
+          right:-5px;
+        }
+        &:after{
+          background-color:#A17FFF;
+          transform:rotate(-45deg);
+          right:-5px;
+        }
+      }
+    }
+    .swiper-button_prev{
+      display:inline-flex;
+      align-items:center;
+      margin-right:22px;
+      .pointer{
+        &:before{
+          left:-5px;
+        }
+        &:after{
+          left:-5px;
+        }
+      }
+    }
+  }
+}
+
+//Будем рады предоставить Вам качественный обмен-------------------------
+.start{
+  margin-top:50px;
+  &__container{
+  }
+  &__block{
+    display:flex;
+    justify-content:flex-end;
+    background: linear-gradient(to top left, #A07EFE, #562EC2);
+    color:white;
+    padding:89px 137px 65px 639px;
+    position:relative;
+    box-shadow:10px 10px 20px 20px #A07EFE;
+    @media(max-width:1078px){
+      width:100%;
+      padding:100px 50px;
+      box-shadow:5px 5px 10px 10px #A07EFE;
+    }
+    img{
+      position:absolute;
+      left:-110px;
+      bottom:-190px;
+      z-index:1;
+      @media(max-width:600px){
+        width:0px;
+      }
+    }
+    div{
+      position:relative;
+      z-index:100;
+      width:400px;
+      h2{
+        color:white;
+      }
+      p{
+        margin-top:17px;
+      }
+      button{
+        margin-top:57px;
+        background-color:white;
+        color:#9F7DFD;
+        box-shadow:0px 5px 10px 0px white;
+      }
+    }
+  }
+}
+
+//Подвал страницы-----------------------------------------------------
+@import "footer.scss";

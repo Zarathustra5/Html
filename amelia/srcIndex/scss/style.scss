@@ -1,0 +1,174 @@
+/*Подключение шрифтов-----------------------------------------*/
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face { 
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+@import "fonts.scss";
+@import "nullstyle.scss";
+
+/*Брейк поинты-----------------------------------------*/
+@media(max-width:1200px){
+  .container{
+    max-width:1030px;
+  }
+}
+
+@media(max-width:1052px){
+  .container{
+    max-width:810px;
+  }
+}
+
+@media(max-width:827px){
+  .container{
+    max-width:none;
+  }
+}
+
+/*Фоновая картинка---------------------------------------*/
+.ibg{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width:100%;
+  height:100%;
+  z-index:-100;
+  img{
+    display:none;
+  }
+}
+
+/*Контейнер-----------------------------------------*/
+.container{
+  max-width:1060px;
+  padding:0 30px;
+  margin:0 auto;
+}
+
+/*Обертка-----------------------------------------*/
+.wrapper{
+  min-height:100%;
+  overflow:hidden;  
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  font-family:Ubuntu;
+}
+
+/*Шапка страницы-----------------------------------------*/
+@import "header.scss";
+
+/*Главный контент страницы-----------------------------------------*/
+.page{
+  flex:1 1 auto;
+}
+
+.product{
+  &:first-child{
+    padding:30px 0 50px 0;
+    border-top:none;
+  }
+  @media(min-width:827px){
+    &:nth-child(even){
+      .product__image{
+        order:2;
+      }
+      .product__description{
+        order:1;
+        margin-right:40px;
+        margin-left:0;
+      }
+    }
+  }
+  display:flex;
+  justify-content:space-between;
+  padding:46px 0 50px 0;
+  border-top:1px solid #e7e7e7;
+  @media(max-width:827px){
+    display:block;
+    text-align:center;
+  }
+  &__image{
+    img{
+      @media(max-width:1052px){
+        max-width:400px;
+      }
+      @media(max-width:827px){
+        width:100%;
+      }
+    }
+  }
+  &__description{
+    line-height: 20px;
+    color: #232323;
+    margin-left:40px;
+    text-align:right;
+    @media(max-width:1052px){
+      margin-left:30px;
+    }
+    @media(max-width:827px){
+      margin-left:0;
+    }
+    &-capture{
+      font-weight: 500;
+      font-size: 30px;
+      text-align:left;
+      @media(max-width:827px){
+        padding-top:20px;
+        text-align:center;
+      }
+    }
+    &-paragraph{
+      font-size: 15px;
+      padding:20px 0 10px 0;
+      text-align:left;
+    }
+    &-link{
+      font-size: 15px;
+      text-decoration: underline;
+      color: #eb4644;
+    }
+  }
+}
+.pagination{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:65px;
+  &__page{
+    font-size: 17px;
+    line-height: 20px;
+    color: #000000;
+    margin-left:10px;
+    &:hover{
+      text-decoration:underline;
+    }
+  }
+  &__arrow{
+    width: 24px;
+    height: 24px;
+    margin-left:10px;
+    svg{
+      background-color: #eb4644;
+      width: 24px;
+      height: 24px;
+      &:hover{
+        background-color: FireBrick;
+      }
+    }
+    &-prev{
+      margin-left:0;
+    }
+  }
+}
+
+/*Подвал страницы-----------------------------------------*/
+@import "footer.scss";

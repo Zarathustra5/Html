@@ -1,0 +1,47 @@
+<!--Сообщаем браузеру как стоит обрабатывать эту страницу-->
+<!DOCTYPE html>
+<!--Оболочка документа, указываем язык содержиого-->
+<html lang="ru">
+<!--Заголовок страницы, контейнер для других важных данных (не отображается)-->
+    <head>
+    	<!--Заголовок страницы в браузере-->
+    	<title>Amelia</title>
+    	<!--Кодировка страницы-->
+      <meta charset="UTF-8"> 
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+      <meta name="format-detection" content="telephone=0">
+      <link rel="stylesheet" href="css/style.min.css">
+      <link rel="stylesheet" href="swiper/swiper-bundle.min.css" />
+      <link rel="shortcut icon" href="img/icon.png">
+    </head>
+    <!--Отображаем тело страницы-->
+    <body>
+      <div class='wrapper'>
+        <!--Шапка страницы-->
+        @@include('_header.html')
+        <!--Главный контент страницы-->
+        <main class="page">
+          <div class="container">
+            <form class="form" action="#">
+              <section class="profile">
+                <h2 class="profile__title">МОЙ ПРОФИЛЬ</h2>
+                <input type="text" name="first-name" placeholder="ИМЯ">
+                <input type="text" name="last-name" placeholder="ОТЧЕСТВО">
+                <input type="text" name="surname" placeholder="ФАМИЛИЯ">
+              </section>
+              <section class="password">
+                <h2 class="password__title">ПАРОЛЬ</h2>
+                <input type="password" name="password" placeholder="НОВЫЙ ПАРОЛЬ">
+                <input type="password" name="password-repeat" placeholder="ПОДТВЕРЖДЕНИЕ ПАРОЛЯ">
+              </section>
+              <button class="save" type="submit">СОХРАНИТЬ НАСТРОЙКИ</button>
+            </form>
+          </div>
+        </main>
+        <!--Подвал страницы-->
+        @@include('_footer.html')
+      </div>
+      <script src="swiper/swiper-bundle.min.js"></script>
+      <script src='js/script.min.js'></script>
+    </body>
+</html>

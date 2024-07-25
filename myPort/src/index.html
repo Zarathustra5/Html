@@ -1,0 +1,66 @@
+<!--Сообщаем браузеру как стоит обрабатывать эту страницу-->
+<!DOCTYPE html>
+<!--Оболочка документа, указываем язык содержиого-->
+<html lang="ru">
+<!--Заголовок страницы, контейнер для других важных данных (не отображается)-->
+    <head>
+    	<!--Заголовок страницы в браузере-->
+    	<title>Portfolio</title>
+    	<!--Кодировка страницы-->
+      <meta charset="UTF-8"> 
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+      <meta name="format-detection" content="telephone=0">
+      <link rel="stylesheet" href="css/style.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+      <link rel="shortcut icon" href="img/icon.png">
+    </head>
+    <!--Отображаем тело страницы-->
+    <body>
+      <div class='wrapper'>
+        <!--Шапка страницы-->
+        @@include('_header.html')
+        <!--Главный контент страницы-->
+        <main class="page">
+          <div class="container">
+            <div class="github">
+              <span>Исходный код игр: </span>
+              <a href="https://github.com/Th0ughtPolice/Games">https://github.com/Th0ughtPolice/Games</a>
+            </div>
+            <div class="game-group">
+              <a href="https://th0ughtpolice.github.io/Games/ants/" class="game">
+                <figure class="game__image">
+                  <img src="img/games/ants.jpg" alt="Картинка не найдена">
+                </figure>
+                <div class="game__description">
+                  <h3 class="title">Муравьи</h3>
+                  <p class="paragraph">Всегда хотели ощутить себя под хитиновым покровом муравьев? Каждый день мы проходим по улице не обращая внимания под ноги, где творится настоящая параллельная вселенная со своими приключениями.</p>
+                </div>
+              </a>
+              <a href="https://th0ughtpolice.github.io/Games/hangman/" class="game">
+                <figure class="game__image">
+                  <img src="img/games/hangman.jpg" alt="Картинка не найдена">
+                </figure>
+                <div class="game__description">
+                  <h3 class="title">Виселица</h3>
+                  <p class="paragraph">Кто-то имеет хороший словарный запас, кто-то имеет отличную интуицию, кто-то просто чрезвычайно удачливый. Если вы обладаете этими качествами или просто хотите проверить свои сверхспособности, то эта игра несомненно для вас. Скорее разгадайте все слова, не забывая, что каждый неверный шаг приближает вас к погибели.</p>
+                </div>
+              </a>
+              <a href="https://th0ughtpolice.github.io/Games/snake/" class="game">
+                <figure class="game__image">
+                  <img src="img/games/snake.jpg" alt="Картинка не найдена">
+                </figure>
+                <div class="game__description">
+                  <h3 class="title">Змейка</h3>
+                  <p class="paragraph">Множество людей играло в змейку и наверняка вы один из них, если нет, то вы обязательно должны сыграть в эту игру. Здесь вас ожидает захватывающее поедание яблок и возможность улучшить свою реакцию.</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </main>
+        <!--Подвал страницы-->
+        @@include('_footer.html')
+      </div>
+      <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+      <script src='js/script.min.js'></script>
+    </body>
+</html>

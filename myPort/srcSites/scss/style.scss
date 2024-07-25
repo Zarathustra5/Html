@@ -1,0 +1,170 @@
+/*Подключение шрифтов-----------------------------------------*/
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face { 
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+@import "fonts.scss";
+@import "nullstyle.scss";
+
+/*Брейк поинты-----------------------------------------*/
+@media(max-width:1260px){
+  .container{
+    max-width:1030px;
+  }
+}
+
+@media(max-width:1052px){
+  .container{
+    max-width:750px;
+  }
+}
+
+@media(max-width:767px){
+  .container{
+    max-width:590px;
+  }
+}
+
+/*Фоновая картинка---------------------------------------*/
+.ibg{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width:100%;
+  height:100%;
+  z-index:-100;
+  img{
+    display:none;
+  }
+}
+
+/*Контейнер-----------------------------------------*/
+.container{
+  max-width:1260px;
+  padding:0 30px;
+  margin:0 auto;
+}
+
+/*Обертка-----------------------------------------*/
+.wrapper{
+  min-height:100%;
+  overflow:hidden;  
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  font-family:OpenSans;
+  background-color:#46394B;
+}
+
+/*Шапка страницы-----------------------------------------*/
+@import "header.scss";
+
+/*Главный контент страницы-----------------------------------------*/
+.page{
+  margin-top:70px;
+  flex:1 1 auto;
+  padding:50px 0;
+  .github{
+    @media(max-width:767px){
+    }
+    span{
+      font-size:16px;
+      @media(max-width:767px){
+        display:block;
+        padding-bottom:5px;
+      }
+    }
+    a{
+      color:rgb(148, 0, 211);
+      color:white;
+      padding-left:5px;
+      &:hover{
+        text-decoration:underline;
+      }
+    }
+  }
+  .site-group{
+    margin-top:30px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    .site{
+      box-shadow:2px 2px 5px 5px black;
+      position:relative;
+      flex:0 1 calc(33.333% - 20px);
+      overflow:hidden;
+      @media(max-width:1052px){
+        flex:0 1 calc(50% - 20px);
+      }
+      @media(max-width:767px){
+        flex:0 1 400px;
+        margin:auto;
+      }
+      &:hover{
+        figcaption{
+          top:0;
+          height:100%;
+          margin-top:0;
+          transition:top 0.5s ease 0s;
+        }
+      }
+      img{
+        max-width:100%;
+        max-height:100%;
+      }
+      &__title{
+        font-size:15px;
+        padding:10px 0;
+        @media(max-width:767px){
+          padding-top:0;
+        }
+        @media(max-width:460px){
+          font-size:14px;
+        }
+      }
+      &__description{
+        padding-top:10px;
+        ul{
+          padding-left:30px;
+          li{
+            padding-top:10px;
+          }
+        }
+        @media(max-width:460px){
+          font-size:13px;
+        }
+      }
+      figcaption{
+        background:rgb(0, 0, 0);
+        color:white;
+        position:absolute;
+        top:334px;
+        padding:0 10px;
+        width:100%;
+        margin-top:-30px;
+        @media(max-width:1260px){
+          top:267px;
+        }
+        @media(max-width:1052px){
+          top:286px;
+        }
+        @media(max-width:767px){
+          position:static;
+          margin-top:0;
+          padding:20px 10px;
+        }
+      }
+    }
+  }
+}
+
+/*Подвал страницы-----------------------------------------*/
+@import "footer.scss";

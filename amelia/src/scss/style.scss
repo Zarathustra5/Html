@@ -1,0 +1,294 @@
+/*Подключение шрифтов-----------------------------------------*/
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face { 
+    font-family: $font_name;
+    font-display: swap;
+    src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+@import "fonts.scss";
+@import "nullstyle.scss";
+
+/*Брейк поинты-----------------------------------------*/
+@media(max-width:1200px){
+  .container{
+    max-width:1030px;
+  }
+}
+
+@media(max-width:1052px){
+  .container{
+    max-width:810px;
+  }
+}
+
+@media(max-width:827px){
+  .container{
+    max-width:none;
+  }
+}
+
+/*Фоновая картинка---------------------------------------*/
+.ibg{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  width:100%;
+  height:100%;
+  z-index:-100;
+  img{
+    display:none;
+  }
+}
+
+/*Контейнер-----------------------------------------*/
+.container{
+  max-width:1060px;
+  padding:0 30px;
+  margin:0 auto;
+}
+
+/*Обертка-----------------------------------------*/
+.wrapper{
+  min-height:100%;
+  overflow:hidden;  
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  font-family:Ubuntu;
+}
+
+/*Шапка страницы-----------------------------------------*/
+@import "header.scss";
+
+/*Главный контент страницы-----------------------------------------*/
+.page{
+  flex:1 1 auto;
+  .container{
+    text-align:center;
+  }
+  &__label{
+    @media(max-width:827px){
+      text-align:center;
+    }
+    margin-top:28px;
+    text-align:left;
+    font-size: 15px;
+    line-height: 16px;
+    span{
+      color: #252525;
+      padding-right:15px;
+      @media(max-width:385px){
+        padding:0;
+      }
+    }
+    button{
+      @media(max-width:385px){
+        display:block;
+        margin:auto;
+        margin-top:8px;
+      }
+      width: 165px;
+      height: 41px;
+      background-color: #eb4644;
+      color:white;
+      &:hover{
+        background-color:DarkRed;
+      }
+    }
+  }
+  .table-wrapper{
+    @media(max-width:827px){
+      overflow-x:auto;
+    }
+  }
+  &__table{
+    margin-top:53px;
+    width:100%;
+    border-collapse: collapse;
+    thead{
+      font-size: 14px;
+      line-height: 20px;
+      text-transform: uppercase;
+      color: #8c8c8c;
+      @media(max-width:1052px){
+        font-size:12px;
+      }
+      @media(max-width:827px){
+        font-size:10px;
+      }
+      tr{
+        height:43px;
+      }
+    }
+    tbody{
+      border: 1px solid #dac7ba;
+      tr{
+        position:relative;
+        height:175px;
+        hr{
+          position:absolute;
+          width:95%;
+          left:0; right:0;
+          bottom:0;
+          margin:auto;
+          border-bottom: 1px solid #dac7ba;
+          @media(max-width:827px){
+            border-bottom:0;
+          }
+        }
+        td{
+          padding:0 5px;
+          &:first-child{
+            img{
+              @media(max-width:827px){
+                width:100px;
+              }
+            }
+          }
+          &.tname{
+            min-width:150px;
+            font-size: 17px;
+            line-height: 20px;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: #2b2c33;
+            @media(max-width:1052px){
+              font-size:15px;
+            }
+            @media(max-width:827px){
+              font-size:10px;
+            }
+            p{
+              font-size: 15px;
+              line-height: 36px;
+              font-weight: 300;
+              text-transform: none;
+              color: #8c8c8c;
+            }
+          }
+          &.tdiscount{
+            p{
+              margin:auto;
+              display:flex;
+              align-items:center;
+              justify-content:center;
+              width: 53px;
+              height: 53px;
+              border: 1px solid #eb4644;
+              font-size: 24px;
+              line-height: 20px;
+              font-weight: 400;
+              color: #232323;
+              @media(max-width:827px){
+                font-size:20px;
+                width:43px;
+                height:43px;
+              }
+            }
+          }
+          &.tprice{
+            font-size: 21px;
+            line-height: 20px;
+            p{
+              color: #232323;
+            }
+            del{
+              color: #c6c6c6;
+            }
+            @media(max-width:827px){
+              font-size:17px;
+            }
+          }
+          &.tchange-amount{
+            div{
+              display:flex;
+              align-items:center;
+              justify-content:space-between;
+              margin:0 auto;
+              border: 1px solid #f8eee7;
+              width: 68px;
+              height: 41px;
+              @media(max-width:827px){
+                width: 58px;
+                height: 35px;
+              }
+              span{
+                cursor:pointer;
+                padding:0 5px;
+                width:20px;
+                -ms-user-select: none;
+                -moz-user-select: none;
+                -khtml-user-select: none;
+                -webkit-user-select: none;
+                user-select: none;
+
+              }
+              input{
+                font-size: 15px;
+                line-height: 16px;
+                color: #252525;
+                text-align:center;
+                width:100%;
+              }
+            }
+          }
+          &.tsum{
+            font-size: 24px;
+            line-height: 20px;
+            color: #232323;
+            @media(max-width:827px){
+              font-size:18px;
+            }
+          }
+          &.tbin{
+            padding:0 40px 0 10px;
+            svg{
+              width: 21px;
+              height: 23px;
+              cursor:pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__sum{
+    .sum__discount{
+      padding-top:10px;
+    }
+    margin-top:8px;
+    padding:20px 0;
+    border: 1px solid #dac7ba;
+    font-size: 26px;
+    line-height: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #232323;
+    span{
+      color: #eb4644;
+    }
+  }
+  &__submit{
+    width: 207px;
+    height: 48px;
+    background-color: #eb4644;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin:40px 0 60px 0;
+    &:hover{
+      background-color:DarkRed;
+    }
+  }
+}
+
+/*Подвал страницы-----------------------------------------*/
+@import "footer.scss";

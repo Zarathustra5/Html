@@ -1,0 +1,64 @@
+<!--Сообщаем браузеру как стоит обрабатывать эту страницу-->
+<!DOCTYPE html>
+<!--Оболочка документа, указываем язык содержиого-->
+<html lang="ru">
+<!--Заголовок страницы, контейнер для других важных данных (не отображается)-->
+    <head>
+    	<!--Заголовок страницы в браузере-->
+    	<title>Portfolio</title>
+    	<!--Кодировка страницы-->
+      <meta charset="UTF-8"> 
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+      <meta name="format-detection" content="telephone=0">
+      <link rel="stylesheet" href="css/style.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+      <link rel="shortcut icon" href="img/icon.png">
+    </head>
+    <!--Отображаем тело страницы-->
+    <body>
+      <div class='wrapper'>
+        <!--Шапка страницы-->
+        @@include('_header.html')
+        <!--Главный контент страницы-->
+        <main class="page">
+          <div class="container">
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img class="swiper-lazy" src="img/sertificates/sololearn-css.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy" src="img/sertificates/sololearn-html.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy" src="img/sertificates/sololearn-js.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy" src="img/sertificates/sololearn-marketers.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy" src="img/sertificates/sololearn-responsive.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy" src="img/sertificates/sololearn-gamedev.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy" src="img/sertificates/sololearn-python.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img class="swiper-lazy" src="img/sertificates/KDW.png" alt="">
+                </div>
+              </div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </main>
+        <!--Подвал страницы-->
+        @@include('_footer.html')
+      </div>
+      <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+      <script src='js/script.min.js'></script>
+    </body>
+</html>
