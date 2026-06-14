@@ -3,18 +3,15 @@ import { Card, Flex, Typography, Timeline, Carousel, Button } from 'antd';
 import husbandPhoto from './assets/img/husband.jpg';
 import wifePhoto from './assets/img/wife.jpg';
 import locationPhoto from './assets/img/location.jpg';
-import heartsImage from './assets/img/balloon-hearts.png';
 import ringsImage from './assets/img/golden-rings.png';
 import envelopesImage from './assets/img/envelopes.png';
-import flowersImage from './assets/img/flowers.png';
-import clocksImage from './assets/img/clocks.png';
-import clocksHourArrowImage from './assets/img/clocks-hour-arrow.png';
-import clocksMinuteArrowImage from './assets/img/clocks-minute-arrow.png';
-import clocksArrowFixatorImage from './assets/img/clocks-arrow-fixator.png';
+import flowersImage from './assets/img/flowers.jpg';
 import dayjs from 'dayjs';
 import SlidingWeekCalendar from './components/SlidingWeekCalendar';
 import FeedbackForm from './components/FeedbackForm';
+import Program from './components/Program';
 import CountdownTimer from './components/CountdownTimer';
+import ScrollScaleImage from './components/ScrollScaleImage';
 import './fonts.sass';
 import './App.sass';
 
@@ -24,53 +21,6 @@ const { Title, Paragraph } = Typography;
 function App() {
   const [count, setCount] = useState(0);
   const strictDate = dayjs('2026-08-08T17:00:00');
-
-  const [schedule, setSchedule] = useState([
-    {
-      id: 0,
-      title: '16:30',
-      content: 'Сбор гостей',
-      rotateParams: { hour: 135, minute: 180 },
-      isActive: true,
-    },
-    {
-      id: 1,
-      title: '17:00',
-      content: 'Церемония',
-      rotateParams: { hour: 150, minute: 0 },
-      isActive: false,
-    },
-    {
-      id: 2,
-      title: '17:30',
-      content: 'Начало банкета',
-      rotateParams: { hour: 165, minute: 180 },
-      isActive: false,
-    },
-    {
-      id: 3,
-      title: '00:00',
-      content: 'Завершение',
-      rotateParams: { hour: 0, minute: 0 },
-      isActive: false,
-    },
-  ]);
-
-  const [rotateParams, setRotateParams] = useState({
-    hour: 135,
-    minute: 180,
-  });
-
-  const handleClocksToggle = (index, itemRotateParams) => {
-    setRotateParams(itemRotateParams);
-    setSchedule((prevItems) =>
-      prevItems.map((item, i) => {
-        if (item.isActive) return { ...item, isActive: false };
-        if (i === index) return { ...item, isActive: true };
-        return item;
-      })
-    );
-  };
 
   const stylesCard = (info) => {
     return {
@@ -110,8 +60,8 @@ function App() {
               <p>08</p>
               <p>26</p>
             </div>
-            <div id='main-hearts'>
-              <img draggable={false} alt='сердечки' src={ringsImage} />
+            <div id='main-rings'>
+              <img draggable={false} alt='кольца' src={ringsImage} />
             </div>
           </Flex>
           <Flex justify='end' gap='50px' style={{ position: 'relative' }}>
@@ -146,57 +96,13 @@ function App() {
               <p>кафе Шампур</p>
               <p>Ул. Гафурова, д.41а</p>
             </div>
-            <img className='address__img' alt='кафе' src={locationPhoto} />
+            <ScrollScaleImage />
           </div>
         </section>
 
         <section className='block program'>
           <Title level={2}>Программа</Title>
-          <Flex align='center' gap='20px'>
-            <div className='program-clock'>
-              <div className='program-clock-wrapper'>
-                <img
-                  className='program-clock__clock'
-                  alt='кафе'
-                  src={clocksImage}
-                />
-                <img
-                  className='program-clock__element program-clock__minute'
-                  alt='кафе'
-                  src={clocksMinuteArrowImage}
-                  style={{ transform: `rotate(${rotateParams.minute}deg)` }}
-                />
-                <img
-                  className='program-clock__element program-clock__hour'
-                  alt='кафе'
-                  src={clocksHourArrowImage}
-                  style={{ transform: `rotate(${rotateParams.hour}deg)` }}
-                />
-                <img
-                  className='program-clock__element program-clock__fixator'
-                  alt='кафе'
-                  src={clocksArrowFixatorImage}
-                />
-              </div>
-            </div>
-            <Flex className='program-schedule' vertical gap='5px'>
-              {schedule.map((item) => (
-                <Button
-                  color='primary'
-                  variant={item.isActive ? 'solid' : 'outlined'}
-                  style={{
-                    width: '100%',
-                    textAlign: 'left',
-                    justifyContent: 'start',
-                  }}
-                  onClick={() => handleClocksToggle(item.id, item.rotateParams)}
-                >
-                  <p>{item.title}</p>
-                  <p>{item.content}</p>
-                </Button>
-              ))}
-            </Flex>
-          </Flex>
+          <Program />
         </section>
 
         <section className='block'>
@@ -208,12 +114,12 @@ function App() {
 
         <section className='block wills'>
           <Title level={2}>Пожелания</Title>
-          <Carousel draggable autoplay>
+          <Carousel draggable autoplay autoplaySpeed={8000}>
             <div>
               <div style={{ position: 'relative' }}>
                 <img
                   draggable={false}
-                  alt='сердечки'
+                  alt='конверты'
                   src={envelopesImage}
                   className='wills__img'
                 />
@@ -228,7 +134,7 @@ function App() {
               <div style={{ position: 'relative' }}>
                 <img
                   draggable={false}
-                  alt='сердечки'
+                  alt='цветы'
                   src={flowersImage}
                   className='wills__img'
                 />

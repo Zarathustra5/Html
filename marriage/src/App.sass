@@ -12,7 +12,7 @@
 .program
     &-clock
         &-wrapper
-            width: 150px
+            width: 130px
             position: relative
         &__clock
             max-width: 100%
@@ -24,20 +24,24 @@
             left: 0
             margin: auto
         &__hour
-            width: 7px
+            width: 6px
             transform-origin: bottom center
             transition: all 0.5s ease-in-out 0s
         &__minute
-            width: 7px
+            width: 6px
             transform-origin: bottom center
-            bottom: 80px
+            bottom: 70px
         &__fixator
             width: 10px
             bottom: 10px
 .address
+    margin-left: -20px
+    margin-right: -20px
     &__img
         width: 100%
         margin-top: 20px
+        transition: transform 0.3s ease-out
+        transform-origin: center center
 
 .wills
     position: relative
@@ -86,7 +90,7 @@
     left: 0
     font-size: 50px
 
-#main-hearts
+#main-rings
     position: absolute
     top: 180px
     right: -10px
