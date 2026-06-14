@@ -1,0 +1,12 @@
+// Определение миксина для переиспользования
+@mixin font-face($name, $path, $weight: null)
+    @font-face
+        font-family: #{$name}
+        src: url('#{$path}.woff2') format('woff2'), url('#{$path}.woff') format('woff'), url('#{$path}.ttf') format('ttf'), url('#{$path}.otf') format('otf')
+        font-weight: $weight
+
+// Подключение шрифтов
+@include font-face('Plate New', '/fonts/Plate_New', 400)
+@include font-face('DwarvenStonecraftCyr', '/fonts/DwarvenStonecraftCyr', 400)
+@include font-face('Jolly Sweater', '/fonts/JollySweaterBold', 700)
+@include font-face('Makan Hati Cyrillic', '/fonts/MakanHatiCyrillic', 400)
