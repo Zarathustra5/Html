@@ -12,6 +12,8 @@ import FeedbackForm from './components/FeedbackForm';
 import Program from './components/Program';
 import CountdownTimer from './components/CountdownTimer';
 import ScrollScaleImage from './components/ScrollScaleImage';
+import EnvelopeCurtain from './components/EnvelopeCurtain';
+import audioFile from './assets/music/Lana_Del_Rey-Young_And_Beautiful.mp3';
 import './fonts.sass';
 import './App.sass';
 
@@ -44,6 +46,7 @@ function App() {
   };
   return (
     <>
+      <EnvelopeCurtain audioSrc={audioFile}></EnvelopeCurtain>
       <Flex vertical align='center'>
         <section className='block main-block' style={{ position: 'relative' }}>
           <Flex gap='50px'>
